@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presentations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#fefefe;color:#0a0a0a;
+  font-family:'Inter',system-ui,sans-serif;
+  min-height:100vh;padding:80px 24px;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:800px;margin:0 auto}
+header{
+  display:flex;align-items:baseline;justify-content:space-between;
+  border-bottom:2px solid #0a0a0a;padding-bottom:16px;margin-bottom:48px;
+}
+h1{font-size:28px;font-weight:700;letter-spacing:-0.5px}
+.count{font-family:'JetBrains Mono',monospace;font-size:13px;color:#888}
+#list .item{border-bottom:1px solid #e8e4ee}
+#list a{
+  display:grid;grid-template-columns:140px 1fr auto;align-items:center;
+  gap:32px;padding:24px 0;text-decoration:none;color:inherit;
+  transition:opacity 0.15s;
+}
+#list a:hover{opacity:0.6}
+.date{font-family:'JetBrains Mono',monospace;font-size:14px;color:#888}
+.name{font-size:18px;font-weight:500;letter-spacing:-0.3px}
+.tag{
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  background:#f0ecf4;color:#9200e1;padding:4px 12px;border-radius:4px;
+  letter-spacing:0.5px;font-weight:500;
+}
+.loading{color:#888;font-size:14px;padding:24px 0}
+.error{color:#e83e3e;font-size:14px;padding:24px 0}
+@media(max-width:600px){
+  #list a{grid-template-columns:1fr;gap:6px}
+  .tag{justify-self:start}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Presentations</h1>
+    <span class="count" id="count"></span>
+  </header>
+  <div id="list"><div class="loading">Loading&hellip;</div></div>
+</div>
+<script type="module">
+  const REPO = "wriches/slides";
+  const PATTERN = /^(\d{4}-\d{2}-\d{2})\s+(.+)$/;
+  const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  function formatDate(iso) {
+    const [y, m, d] = iso.split("-").map(Number);
+    return `${MONTHS[m - 1]} ${d}, ${y}`;
+  }
+
+  try {
+    const res = await fetch(`https://api.github.com/repos/${REPO}/contents/`);
+    if (!res.ok) throw new Error(`GitHub API returned ${res.status}`);
+
+    const entries = await res.json();
+
+    const presentations = entries
+      .filter((e) => e.type === "dir" && PATTERN.test(e.name))
+      .map((e) => {
+        const [, date, name] = e.name.match(PATTERN);
+        return { date, name, dir: e.name };
+      })
+      .sort((a, b) => b.date.localeCompare(a.date));
+
+    document.getElementById("count").textContent =
+      `${presentations.length} deck${presentations.length === 1 ? "" : "s"}`;
+
+    document.getElementById("list").innerHTML = presentations
+      .map(
+        (p) => `<div class="item">
+          <a href="./${p.dir}/index.html">
+            <span class="date">${formatDate(p.date)}</span>
+            <span class="name">${p.name}</span>
+            <span class="tag">Slides</span>
+          </a>
+        </div>`
+      )
+      .join("");
+  } catch (err) {
+    document.getElementById("list").innerHTML =
+      `<div class="error">Failed to load presentations. Please try again later.</div>`;
+  }
+</script>
+</body>
+</html>
