@@ -8,9 +8,10 @@ A collection of HTML slide deck presentations hosted on GitHub Pages at `slides.
 
 ## Repository Structure
 
-- **Root `index.html`** — Landing page that reads `presentations.json` and renders links to all presentations.
+- **Root `index.html`** — Landing page that reads `presentations.js` and renders links to all presentations.
 - **`presentations.js`** — Manifest listing all presentation directory names as a `PRESENTATIONS` array. **Must be updated whenever a presentation is added or removed.**
-- **Presentation directories** — Named `YYYY-MM-DD Presentation Name`. The first 10 characters are the ISO date, followed by a space, then the name. Each contains an `index.html` and optional image assets.
+- **`fonts/`** — Shared font files (Regola Pro, Geist Mono) used by all presentations and the landing page.
+- **Presentation directories** — Named `YYYY-MM-DD Presentation Name`. The first 10 characters are the ISO date, followed by a space, then the name. Each contains an `index.html` and optional assets in `img/` and `css/` subdirectories.
 
 ## Creating a New Presentation
 
@@ -46,9 +47,11 @@ Each presentation's `index.html` contains:
 
 ## Design System
 
-**Shared CSS** (`shared.css`): When a presentation includes companion pages (e.g. a scrollable guide loaded via iframe), shared design tokens and base components live in `shared.css` within the presentation directory. Both the presentation and companion pages link to it. Contains: CSS reset, `:root` variables, `.accent`, `.mono`, `.divider`, `.card` (base). Each page overrides only what differs (e.g. padding, margins).
+**Shared CSS** (`css/shared.css`): When a presentation includes companion pages (e.g. a scrollable guide loaded via iframe), shared design tokens and base components live in `css/shared.css` within the presentation directory. Both the presentation and companion pages link to it. Contains: `@font-face` declarations, CSS reset, `:root` variables, `.accent`, `.mono`, `.divider`, `.card` (base). Each page overrides only what differs (e.g. padding, margins).
 
-**CSS Variables** (`:root`): `--purple: #9200E1`, `--bg: #FEFEFE`, `--text: #0A0A0A`, `--red: #E83E3E`, `--green: #16A34A`, `--font: 'Inter'`, `--mono: 'JetBrains Mono'`.
+**Fonts** (per 0G brand guide): Primary sans-serif is **Regola Pro** (Book/Regular/Medium/Bold), monospace is **Geist Mono** (variable weight). Font files live in the repo root `fonts/` directory. The `@font-face` weight mapping shifts one step lighter to match Inter's visual weight: Book serves 300–400, Regular serves 500, Medium serves 600, Bold serves 700. Always use CSS variables (`var(--font)`, `var(--mono)`) — never hardcode font names except in SVG `foreignObject` elements where CSS variables aren't available (use `'Regola Pro','Inter',sans-serif` there).
+
+**CSS Variables** (`:root`): `--purple: #9200E1`, `--bg: #FEFEFE`, `--text: #0A0A0A`, `--red: #E83E3E`, `--green: #16A34A`, `--font: 'Regola Pro','Inter',sans-serif`, `--mono: 'Geist Mono','JetBrains Mono',monospace`.
 
 **Key components**: `.tag` (section label with dot), `.card` / `.card-grid` (bordered containers), `.stack` / `.stack-layer` (architecture diagrams), `.bar-chart` / `.bar-fill` (horizontal bars), `.compare-table` (comparison grids), `.problem-layout` (two-column problem/solution with CSS graphics), `.two-col` (generic two-column grid).
 

@@ -1,0 +1,27 @@
+/* Shared design tokens and base components */
+
+/* Font faces */
+@font-face{font-family:'Regola Pro';src:url('../../fonts/Regola Pro Book.otf') format('opentype');font-weight:300 400;font-style:normal;font-display:swap}
+@font-face{font-family:'Regola Pro';src:url('../../fonts/Regola Pro Regular.otf') format('opentype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Regola Pro';src:url('../../fonts/Regola Pro Medium.otf') format('opentype');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Regola Pro';src:url('../../fonts/Regola Pro Bold.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Geist Mono';src:url('../../fonts/GeistMono-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#FEFEFE;--bg-alt:#F8F6FB;--bg-card:#FFFFFF;
+  --purple:#9200E1;--purple-light:#B75FFF;--purple-soft:rgba(146,0,225,0.06);
+  --purple-border:rgba(146,0,225,0.15);--purple-glow:rgba(146,0,225,0.08);
+  --text:#0A0A0A;--text-2:#444;--text-3:#888;--text-4:#bbb;
+  --border:#E8E4EE;--border-light:#F0ECF4;
+  --red:#E83E3E;--red-soft:rgba(232,62,62,0.08);--red-border:rgba(232,62,62,0.2);
+  --green:#16A34A;--green-soft:rgba(22,163,74,0.08);
+  --font:'Regola Pro','Inter',sans-serif;
+  --mono:'Geist Mono','JetBrains Mono',monospace;
+}
+
+.accent{color:var(--purple)}
+.mono{font-family:var(--mono)}
+.divider{width:48px;height:2px;background:var(--purple);margin:24px 0;border-radius:1px;opacity:0.6}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px}
