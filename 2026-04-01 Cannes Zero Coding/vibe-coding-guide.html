@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe Coding Starter Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/shared.css">
+<style>
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--font);line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  padding:0;margin:0;
+}
+.hero{
+  background:#050505;color:#FEFEFE;
+  padding:80px 24px 64px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(146,0,225,0.08) 1px,transparent 1px);
+  background-size:40px 40px;pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);
+  width:1200px;height:700px;
+  background:radial-gradient(ellipse at 50% 30%,rgba(146,0,225,0.2) 0%,transparent 60%);
+  pointer-events:none;
+}
+.hero>*{position:relative;z-index:1}
+.hero h1{font-size:48px;font-weight:300;letter-spacing:-2px;line-height:1.1}
+.hero h1 strong{font-weight:700;color:var(--purple-light)}
+.hero .quote{font-size:18px;color:rgba(254,254,254,0.5);margin-top:16px;font-style:italic;font-weight:300}
+.hero .quote strong{color:rgba(254,254,254,0.7);font-weight:500;font-style:normal}
+
+.container{max-width:800px;margin:0 auto;padding:48px 24px}
+
+h2{font-size:32px;font-weight:300;letter-spacing:-1px;margin-top:56px;margin-bottom:24px;line-height:1.2}
+h2 strong{font-weight:700}
+h3{font-size:20px;font-weight:600;margin-top:40px;margin-bottom:12px;letter-spacing:-0.3px}
+
+.divider{margin:32px 0}
+
+blockquote{
+  border-left:3px solid var(--purple);padding:12px 20px;
+  margin:16px 0;background:var(--purple-soft);border-radius:0 8px 8px 0;
+  font-size:15px;color:var(--text-2);font-style:italic;
+}
+
+.table-wrap{overflow-x:auto;margin:16px 0}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{
+  background:var(--purple);color:#fff;font-family:var(--mono);
+  font-size:11px;text-transform:uppercase;letter-spacing:1.5px;
+  padding:12px 16px;text-align:left;font-weight:600;
+}
+td{padding:12px 16px;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}
+td:first-child{font-weight:600}
+
+.card{padding:24px;margin:16px 0}
+
+pre{
+  background:#1a1a2e;color:#e0e0e0;border-radius:10px;
+  padding:20px 24px;margin:12px 0;overflow-x:auto;
+  font-family:var(--mono);font-size:13px;line-height:1.6;
+}
+pre .good{color:#4ade80}
+pre .bad{color:#f87171}
+pre .comment{color:#888}
+
+code{
+  background:rgba(146,0,225,0.08);color:var(--purple);
+  padding:2px 6px;border-radius:4px;font-family:var(--mono);font-size:13px;
+}
+pre code{background:none;color:inherit;padding:0}
+
+ul{margin:8px 0 8px 20px}
+li{margin:4px 0;font-size:15px}
+li::marker{color:var(--purple)}
+
+p{margin:8px 0;font-size:15px}
+
+.callout{
+  display:flex;gap:12px;align-items:flex-start;
+  background:var(--purple-soft);border:1px solid var(--purple-border);
+  border-radius:10px;padding:16px 20px;margin:16px 0;
+}
+.callout-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.callout-text{font-size:14px;color:var(--text-2)}
+.callout-text a{color:var(--purple);font-weight:500}
+
+.pitfall-table td:first-child{color:var(--red);font-weight:600}
+.pitfall-table td:last-child{color:var(--green);font-weight:500}
+
+.agent-table tr:nth-child(odd) td{background:var(--bg-alt)}
+
+.back-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:12px;color:var(--purple);
+  text-decoration:none;letter-spacing:0.5px;text-transform:uppercase;
+  margin-bottom:16px;font-weight:500;
+}
+.back-link:hover{opacity:0.7}
+
+.toc{
+  background:var(--bg-alt);border:1px solid var(--border);
+  border-radius:12px;padding:24px 28px;margin:24px 0;
+}
+.toc-title{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--text-3);font-weight:600;margin-bottom:12px}
+.toc a{
+  display:block;font-size:14px;color:var(--text-2);
+  text-decoration:none;padding:4px 0;
+}
+.toc a:hover{color:var(--purple)}
+
+.sticky-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;gap:12px;
+  padding:12px 24px;
+  background:rgba(254,254,254,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  transform:translateY(-100%);transition:transform 0.3s ease;
+}
+.sticky-header.visible{transform:translateY(0)}
+.sticky-header svg{width:40px;height:20px;color:var(--text);flex-shrink:0}
+.sticky-header .header-title{font-size:14px;font-weight:600;letter-spacing:-0.3px;color:var(--text)}
+</style>
+</head>
+<body>
+
+<div class="sticky-header" id="stickyHeader">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 24" fill="none" preserveAspectRatio="xMidYMid meet"><path d="M50.0009 12.6136C49.6855 18.9497 44.3897 23.9913 37.9033 23.9913C31.214 23.9913 25.791 18.6291 25.791 12.0146C25.791 5.40009 31.214 0.0380859 37.9033 0.0380859C44.1841 0.0380859 49.3483 4.76491 49.956 10.8171H44.4555C43.8858 7.75086 41.169 5.42761 37.9035 5.42761C34.2241 5.42761 31.2416 8.37672 31.2416 12.0146C31.2416 15.6527 34.2241 18.6018 37.9035 18.6018C40.7281 18.6018 43.1418 16.8636 44.111 14.4101H34.8753V12.6136H50.0009Z" fill="currentColor"/><path d="M3.98642 20.8584C8.74078 25.1181 16.0905 24.9803 20.6772 20.4453C25.4072 15.7681 25.4072 8.18505 20.6772 3.50781C15.9469 -1.16927 8.27782 -1.16927 3.54764 3.50781C-0.893505 7.8992 -1.16488 14.8521 2.73348 19.5567L6.62297 15.7108C4.83311 13.1445 5.09269 9.60205 7.40183 7.31886C10.0034 4.7464 14.2215 4.7464 16.8231 7.31886C19.4245 9.89129 19.4245 14.062 16.8231 16.6345C14.8257 18.6094 11.8757 19.0682 9.43583 18.0106L15.9665 11.5531L14.6819 10.2829L3.98642 20.8584Z" fill="currentColor"/></svg>
+  <span class="header-title">Vibe Coding Starter Guide</span>
+</div>
+
+<div class="hero">
+  <h1>Vibe Coding <strong>Starter Guide</strong></h1>
+  <p class="quote">"The hottest new programming language is English" — <strong>Andrej Karpathy</strong></p>
+</div>
+
+<div class="container">
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <a href="#golden-rule">The Golden Rule</a>
+    <a href="#ai-context">AI Assistant Context</a>
+    <a href="#best-practices">Best Practices (13 tips)</a>
+    <a href="#pitfalls">Common Pitfalls</a>
+    <a href="#bmad">BMAD Method</a>
+  </div>
+
+  <!-- THE GOLDEN RULE -->
+  <h2 id="golden-rule">The <strong class="accent">Golden Rule</strong></h2>
+  <blockquote>Plan with the smartest, code with the fastest</blockquote>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Task</th><th>Recommended Models</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Planning & Architecture</td><td>Claude Opus 4.6, Gemini 3.1 Pro, GPT-5.4</td><td>Need deep reasoning, long context</td></tr>
+        <tr><td>Writing Code</td><td>Claude Sonnet 4.6, GPT-4o</td><td>Great balance of speed + quality</td></tr>
+        <tr><td>Quick Iterations</td><td>Claude Haiku 4.5, Grok Fast, Gemini 3 Flash</td><td>Speed > perfection</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- AI CONTEXT -->
+  <h2 id="ai-context"><strong class="accent">AI</strong> Assistant Context</h2>
+
+  <div class="callout">
+    <span class="callout-icon">🤖</span>
+    <div class="callout-text">
+      Share <a href="https://docs.0g.ai/ai-context">docs.0g.ai/ai-context</a> with your AI coding assistant (Claude, ChatGPT, Cursor, etc.) for instant access to all 0G network configs, contract addresses, code examples, and SDK commands. This context page helps AI provide accurate, copy-paste ready code for building on 0G.
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- BEST PRACTICES -->
+  <h2 id="best-practices"><strong class="accent">Best</strong> Practices</h2>
+
+  <h3>1. Always Plan First</h3>
+  <blockquote>Before you write a single line of code, ask your AI to plan</blockquote>
+  <pre><code><span class="bad">❌ "Build me a login system"</span>
+
+<span class="good">✅ "Create a detailed plan for a login system. Include:
+   - Architecture decisions
+   - Security considerations
+   - File structure
+   - Step-by-step implementation checklist
+   Save as plan.md"</span></code></pre>
+  <p><strong>Why this matters:</strong></p>
+  <ul>
+    <li>Catches issues before they're coded</li>
+    <li>Gives you a checklist to verify</li>
+    <li>Reduces context loss in long sessions</li>
+    <li>Creates documentation automatically</li>
+  </ul>
+
+  <h3>2. Request Markdown Checklists</h3>
+  <blockquote>Turn plans into trackable progress</blockquote>
+  <p>Ask for:</p>
+  <ul>
+    <li>Checkboxes for each step</li>
+    <li>Numbered phases</li>
+    <li>Dependencies noted</li>
+    <li>Acceptance criteria</li>
+  </ul>
+  <pre><code><span class="comment">"...format as a markdown checklist with detailed steps I can track"</span></code></pre>
+
+  <h3>3. Security First (But Don't Over-Engineer)</h3>
+  <blockquote>Security is a huge problem in vibe coding — but paranoia kills velocity</blockquote>
+  <p><strong>Essential Security Checks</strong> (ask your AI every time):</p>
+  <pre><code><span class="comment">"Review this code for security vulnerabilities. Flag what's necessary vs over-engineering."</span></code></pre>
+  <p><strong>Don't Over-Engineer:</strong></p>
+  <ul>
+    <li>Start with basic security for MVPs</li>
+    <li>Add layers as you scale</li>
+    <li>Don't build enterprise auth for a weekend project</li>
+  </ul>
+
+  <h3>4. Learn, Don't Just Ship</h3>
+  <blockquote>If you're a developer, understanding HOW it works matters</blockquote>
+  <p><strong>After AI solves your problem, ask:</strong></p>
+  <pre><code><span class="comment">"Explain how this solution works:
+- What pattern did you use?
+- Why this approach over alternatives?
+- What are the tradeoffs?
+- What would break this?"</span></code></pre>
+  <p><strong>Why this matters for your career:</strong></p>
+  <ul>
+    <li>AI won't replace devs who understand systems</li>
+    <li>You'll debug faster when things break</li>
+    <li>You'll guide AI better with deeper knowledge</li>
+  </ul>
+
+  <h3>5. The "Explain It Back" Rule</h3>
+  <p>Before shipping any AI-generated code:</p>
+  <pre><code><span class="comment">"Explain this code to me like I'm a junior dev"</span></code></pre>
+  <p>If you can't understand the explanation, you shouldn't ship the code.</p>
+
+  <h3>6. Break It Down — One Thing at a Time</h3>
+  <blockquote>Don't try to build Rome in one prompt</blockquote>
+  <pre><code><span class="bad">❌ "Build me a complete e-commerce platform with auth, payments,
+    inventory, shipping, admin dashboard, and analytics"</span>
+
+<span class="good">✅ "Let's build an e-commerce platform. First, create the
+    user authentication system. Start with the data models."</span></code></pre>
+  <p><strong>The chunking rule:</strong></p>
+  <ul>
+    <li>One feature per conversation thread</li>
+    <li>Complete → Test → Move to next</li>
+    <li>Each chunk should be independently testable</li>
+  </ul>
+
+  <h3>7. Context is King — But Don't Dump Everything</h3>
+  <blockquote>Give AI the right context, not ALL the context</blockquote>
+  <pre><code><span class="good">✅ "I'm building a React app with TypeScript.
+Here's my current component structure: [paste relevant files]
+I need to add a new feature that..."</span>
+
+<span class="bad">❌ "Here's my entire 500-file codebase [dumps everything]
+Fix the bug"</span></code></pre>
+  <p><strong>Pro tip:</strong> Use <code>@codebase</code> in Cursor or reference specific files in Cline.</p>
+
+  <h3>8. Use Rules Files / Custom Instructions</h3>
+  <blockquote>Train your AI on your preferences ONCE</blockquote>
+  <p>Create <code>.cursorrules</code>, <code>.github/copilot-instructions.md</code>, or <code>CLAUDE.md</code>:</p>
+  <pre><code><span class="comment"># Project Rules
+
+## Code Style
+- Use TypeScript strict mode
+- Prefer functional components
+- Use Tailwind for styling
+
+## Conventions
+- File names: kebab-case
+- Components: PascalCase
+
+## Don't
+- Never use `any` type
+- No console.log in production code
+- Don't install new dependencies without asking</span></code></pre>
+  <p>This prevents repeating preferences in every prompt.</p>
+
+  <h3>9. Commit Early, Commit Often</h3>
+  <blockquote>Git is your safety net — use it</blockquote>
+  <pre><code><span class="comment"># Before AI makes big changes</span>
+git add . && git commit -m "checkpoint: before AI refactor"
+
+<span class="comment"># After each working feature</span>
+git add . && git commit -m "feat: add user authentication"</code></pre>
+  <p><strong>Why:</strong></p>
+  <ul>
+    <li>Easy rollback if AI breaks things</li>
+    <li>Track what AI changed vs what you changed</li>
+    <li>Meaningful history for debugging</li>
+  </ul>
+
+  <h3>10. Test As You Go</h3>
+  <blockquote>Don't build a mountain then test — test each brick</blockquote>
+  <pre><code><span class="comment">After each feature:
+1. Does it compile/build?
+2. Does it run without errors?
+3. Does it do what you asked?
+4. Edge cases handled?
+
+THEN move to next feature.</span></code></pre>
+  <p><strong>Ask AI to help:</strong></p>
+  <pre><code><span class="comment">"Write unit tests for this function"
+"What edge cases should I test for?"
+"Generate test data for this feature"</span></code></pre>
+
+  <h3>11. When Stuck, Ask AI to Debug Its Own Output</h3>
+  <blockquote>AI broke it? AI can fix it.</blockquote>
+  <pre><code><span class="comment">"This code you generated throws an error:
+[paste error]
+
+Here's the relevant code:
+[paste code]
+
+Debug and fix it."</span></code></pre>
+  <p><strong>Better yet:</strong></p>
+  <pre><code><span class="comment">"Why did this fail? Explain the root cause before fixing."</span></code></pre>
+
+  <h3>12. Use Screenshots for UI Work</h3>
+  <blockquote>A picture is worth 1000 tokens</blockquote>
+  <p>Most modern AI tools support image input:</p>
+  <ul>
+    <li>Screenshot your current UI</li>
+    <li>Screenshot the design you want</li>
+    <li>Screenshot the error</li>
+  </ul>
+  <pre><code><span class="comment">"Here's my current UI [image].
+Make it look like this design [image]."</span></code></pre>
+
+  <h3>13. Know When to Stop and Do It Manually</h3>
+  <blockquote>Sometimes the fastest path is typing it yourself</blockquote>
+  <p><strong>Use AI for:</strong> Boilerplate, complex algorithms, unfamiliar APIs, repetitive tasks.</p>
+  <p><strong>Do manually when:</strong> Simple 5-line fix, you've prompted 5+ times for the same thing, AI keeps getting it wrong, or it's faster to type than explain.</p>
+
+  <div class="divider"></div>
+
+  <!-- COMMON PITFALLS -->
+  <h2 id="pitfalls">Common <strong class="accent">Pitfalls</strong></h2>
+
+  <div class="table-wrap">
+    <table class="pitfall-table">
+      <thead><tr><th>Pitfall</th><th>Solution</th></tr></thead>
+      <tbody>
+        <tr><td>Skipping planning</td><td>Always plan → review → code</td></tr>
+        <tr><td>Mega-prompts</td><td>Break into small, testable chunks</td></tr>
+        <tr><td>No version control</td><td>Commit before/after AI changes</td></tr>
+        <tr><td>Accepting first solution</td><td>Ask for alternatives</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- BMAD METHOD -->
+  <h2 id="bmad"><strong class="accent">BMAD</strong> Method</h2>
+
+  <h3>What is BMAD?</h3>
+  <p><strong>BMAD</strong> = Breakthrough Method for Agile AI-Driven Development</p>
+  <p>An open-source framework that brings structure to vibe coding through specialized AI agents.</p>
+  <p>
+    <a href="https://github.com/bmad-code-org/BMAD-METHOD" style="color:var(--purple);font-weight:500">GitHub</a> ·
+    <a href="https://bmadcodes.com/" style="color:var(--purple);font-weight:500">Website</a> ·
+    <a href="https://www.youtube.com/watch?v=LorEJPrALcg" style="color:var(--purple);font-weight:500">Video Masterclass</a>
+  </p>
+
+  <h3>Agent Team</h3>
+  <div class="table-wrap">
+    <table class="agent-table">
+      <thead><tr><th>Agent</th><th>Role</th></tr></thead>
+      <tbody>
+        <tr><td>Analyst</td><td>Creates project brief</td></tr>
+        <tr><td>PM</td><td>Generates PRD from brief</td></tr>
+        <tr><td>Architect</td><td>Designs system architecture</td></tr>
+        <tr><td>Scrum Master</td><td>Creates detailed dev stories</td></tr>
+        <tr><td>Dev</td><td>Implements code</td></tr>
+        <tr><td>QA</td><td>Tests and reviews</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Why BMAD Matters</h3>
+  <blockquote>BMAD transforms chaotic "vibe coding" into structured, repeatable workflows</blockquote>
+  <ul>
+    <li>Reduces token waste by front-loading planning</li>
+    <li>Creates comprehensive documentation automatically</li>
+    <li>Works with Cursor, VS Code, Claude Code, Windsurf</li>
+    <li>Enterprise-ready with audit trails</li>
+  </ul>
+
+</div>
+
+<script>
+const header=document.getElementById('stickyHeader');
+const hero=document.querySelector('.hero');
+const observer=new IntersectionObserver(([e])=>{
+  header.classList.toggle('visible',!e.isIntersecting);
+},{threshold:0});
+observer.observe(hero);
+
+// Forward slide navigation keys to parent when embedded in iframe
+if(window.parent!==window){
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
+      e.preventDefault();
+      window.parent.postMessage({type:'slideKey',key:e.key},'*');
+    }
+    if((e.key==='f'||e.key==='F')&&!e.metaKey&&!e.ctrlKey){
+      window.parent.postMessage({type:'slideKey',key:e.key},'*');
+    }
+  });
+}
+</script>
+</body>
+</html>
