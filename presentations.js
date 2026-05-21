@@ -1,4 +1,5 @@
 const PRESENTATIONS = [
+  "2026-05-21 Apollo Accelerator",
   "2026-04-03 ETHGlobal Cannes",
   "2026-04-01 Cannes Zero Coding",
   "2026-03-23 Onsite Lagos",
