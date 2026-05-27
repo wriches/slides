@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Vibe Coding Tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/shared.css">
+<style>
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--font);line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  padding:0;margin:0;
+}
+.hero{
+  background:#050505;color:#FEFEFE;
+  padding:64px 24px 48px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(146,0,225,0.08) 1px,transparent 1px);
+  background-size:40px 40px;pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);
+  width:1200px;height:700px;
+  background:radial-gradient(ellipse at 50% 30%,rgba(146,0,225,0.2) 0%,transparent 60%);
+  pointer-events:none;
+}
+.hero>*{position:relative;z-index:1}
+.hero h1{font-size:42px;font-weight:300;letter-spacing:-2px;line-height:1.1}
+.hero h1 strong{font-weight:700;color:var(--purple-light)}
+.hero .sub{font-size:16px;color:rgba(254,254,254,0.45);margin-top:12px;font-weight:300}
+
+.container{max-width:860px;margin:0 auto;padding:40px 24px}
+
+h2{font-size:28px;font-weight:300;letter-spacing:-1px;margin-top:48px;margin-bottom:20px;line-height:1.2}
+h2 strong{font-weight:700}
+
+.divider{margin:32px 0}
+
+.table-wrap{overflow-x:auto;margin:20px 0}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{
+  background:var(--purple);color:#fff;font-family:var(--mono);
+  font-size:10px;text-transform:uppercase;letter-spacing:1.5px;
+  padding:10px 12px;text-align:left;font-weight:600;
+}
+td{padding:10px 12px;border-bottom:1px solid var(--border);font-size:13px}
+tr:last-child td{border-bottom:none}
+td:first-child{font-weight:600}
+td a{color:var(--purple);text-decoration:none;font-weight:500}
+td a:hover{text-decoration:underline}
+.free{color:var(--green);font-weight:600;font-family:var(--mono);font-size:11px}
+.freemium{color:var(--purple);font-weight:500;font-size:12px}
+
+.tool{margin-top:32px}
+.tool-header{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.tool-header h3{font-size:18px;font-weight:700;letter-spacing:-0.3px;margin:0}
+.tool-header .badge{
+  font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:1px;
+  padding:3px 10px;border-radius:4px;font-weight:600;
+}
+.badge-free{background:var(--green-soft);color:var(--green)}
+.badge-freemium{background:var(--purple-soft);color:var(--purple)}
+.tool-tagline{font-size:14px;color:var(--text-2);margin-bottom:8px}
+.tool-details{font-size:13px;color:var(--text-2);line-height:1.6}
+.tool-details strong{color:var(--text);font-weight:600}
+.tool-link{
+  display:inline-block;margin-top:6px;
+  font-family:var(--mono);font-size:12px;color:var(--purple);
+  text-decoration:none;font-weight:500;
+}
+.tool-link:hover{text-decoration:underline}
+
+.sticky-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;gap:12px;
+  padding:12px 24px;
+  background:rgba(254,254,254,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  transform:translateY(-100%);transition:transform 0.3s ease;
+}
+.sticky-header.visible{transform:translateY(0)}
+.sticky-header svg{width:40px;height:20px;color:var(--text);flex-shrink:0}
+.sticky-header .header-title{font-size:14px;font-weight:600;letter-spacing:-0.3px;color:var(--text)}
+</style>
+</head>
+<body>
+
+<div class="sticky-header" id="stickyHeader">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 24" fill="none" preserveAspectRatio="xMidYMid meet"><path d="M50.0009 12.6136C49.6855 18.9497 44.3897 23.9913 37.9033 23.9913C31.214 23.9913 25.791 18.6291 25.791 12.0146C25.791 5.40009 31.214 0.0380859 37.9033 0.0380859C44.1841 0.0380859 49.3483 4.76491 49.956 10.8171H44.4555C43.8858 7.75086 41.169 5.42761 37.9035 5.42761C34.2241 5.42761 31.2416 8.37672 31.2416 12.0146C31.2416 15.6527 34.2241 18.6018 37.9035 18.6018C40.7281 18.6018 43.1418 16.8636 44.111 14.4101H34.8753V12.6136H50.0009Z" fill="currentColor"/><path d="M3.98642 20.8584C8.74078 25.1181 16.0905 24.9803 20.6772 20.4453C25.4072 15.7681 25.4072 8.18505 20.6772 3.50781C15.9469 -1.16927 8.27782 -1.16927 3.54764 3.50781C-0.893505 7.8992 -1.16488 14.8521 2.73348 19.5567L6.62297 15.7108C4.83311 13.1445 5.09269 9.60205 7.40183 7.31886C10.0034 4.7464 14.2215 4.7464 16.8231 7.31886C19.4245 9.89129 19.4245 14.062 16.8231 16.6345C14.8257 18.6094 11.8757 19.0682 9.43583 18.0106L15.9665 11.5531L14.6819 10.2829L3.98642 20.8584Z" fill="currentColor"/></svg>
+  <span class="header-title">Free Vibe Coding Tools</span>
+</div>
+
+<div class="hero">
+  <h1>Free Vibe Coding <strong>Tools</strong></h1>
+  <p class="sub">Everything you need to start building with AI — at zero cost</p>
+</div>
+
+<div class="container">
+
+  <!-- COMPARISON TABLE -->
+  <h2>At a <strong class="accent">Glance</strong></h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Tool</th><th>Type</th><th>Price</th><th>Models</th><th>Platform</th><th>Best For</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><a href="https://antigravity.google/">Antigravity</a></td>
+          <td>IDE</td>
+          <td><span class="free">Free</span></td>
+          <td>Gemini 3.1 Pro, Claude Sonnet 4.6</td>
+          <td>Mac, Win, Linux</td>
+          <td>Rapid prototyping</td>
+        </tr>
+        <tr>
+          <td><a href="https://claude.ai">Claude</a></td>
+          <td>Chat</td>
+          <td><span class="free">Free</span></td>
+          <td>Claude Sonnet 4.6, Opus 4.6 (Pro)</td>
+          <td>Web, Mac, Win, Mobile</td>
+          <td>Planning, architecture</td>
+        </tr>
+        <tr>
+          <td><a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code</a></td>
+          <td>CLI Agent</td>
+          <td><span class="freemium">BYOK</span></td>
+          <td>Claude Sonnet 4.6</td>
+          <td>CLI, IDE extensions</td>
+          <td>Agent workflows</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/features/copilot">Copilot</a></td>
+          <td>Extension</td>
+          <td><span class="free">Free</span></td>
+          <td>GPT-4o, Claude Sonnet 4.6</td>
+          <td>VS Code, JetBrains</td>
+          <td>Inline completions</td>
+        </tr>
+        <tr>
+          <td><a href="https://windsurf.ai/">Windsurf</a></td>
+          <td>IDE</td>
+          <td><span class="free">Free</span></td>
+          <td>Codeium + partners</td>
+          <td>Standalone (VS Code fork)</td>
+          <td>Beginners, frontend</td>
+        </tr>
+        <tr>
+          <td><a href="https://cursor.com/">Cursor</a></td>
+          <td>IDE</td>
+          <td><span class="freemium">Free tier</span></td>
+          <td>GPT-5.4, Claude, Gemini</td>
+          <td>Standalone (VS Code fork)</td>
+          <td>Power users</td>
+        </tr>
+        <tr>
+          <td><a href="https://cline.bot/">Cline</a></td>
+          <td>Extension</td>
+          <td><span class="freemium">BYOK</span></td>
+          <td>Any (Claude, GPT, local)</td>
+          <td>VS Code extension</td>
+          <td>Privacy, flexibility</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- TOOL DETAILS -->
+  <h2>Tool <strong class="accent">Details</strong></h2>
+
+  <div class="tool">
+    <div class="tool-header">
+      <h3>Google Antigravity</h3>
+      <span class="badge badge-free">Free</span>
+    </div>
+    <div class="tool-tagline">The agent-first IDE</div>
+    <div class="tool-details">
+      First truly agent-first IDE — not just AI-assisted. Multiple agents work in parallel, producing artifacts (screenshots, plans, recordings). Integrated browser automation for UI testing. VS Code-familiar interface.
+    </div>
+    <a class="tool-link" href="https://antigravity.google/">antigravity.google &rarr;</a>
+  </div>
+
+  <div class="tool">
+    <div class="tool-header">
+      <h3>Claude + Claude Code</h3>
+      <span class="badge badge-free">Free</span>
+      <span class="badge badge-freemium">BYOK for Code</span>
+    </div>
+    <div class="tool-tagline">Reasoning-first AI + hands-on coding agent</div>
+    <div class="tool-details">
+      <strong>Claude</strong> excels at planning, architecture, code reviews, and long-context reasoning. <strong>Claude Code</strong> turns it into an active agent that reads, writes, and refactors files via CLI. MCP-compatible, strong balance between autonomy and control.
+    </div>
+    <a class="tool-link" href="https://claude.ai">claude.ai</a> · <a class="tool-link" href="https://docs.anthropic.com/en/docs/claude-code">Claude Code docs &rarr;</a>
+  </div>
+
+  <div class="tool">
+    <div class="tool-header">
+      <h3>GitHub Copilot</h3>
+      <span class="badge badge-free">Free tier</span>
+    </div>
+    <div class="tool-tagline">The OG AI coding assistant</div>
+    <div class="tool-details">
+      Free tier: 2,000 completions/month, 50 chat requests/month. Works in VS Code, JetBrains, Neovim. Custom instructions support. Pro ($10/mo) removes limits.
+    </div>
+    <a class="tool-link" href="https://github.com/features/copilot">github.com/features/copilot &rarr;</a>
+  </div>
+
+  <div class="tool">
+    <div class="tool-header">
+      <h3>Windsurf</h3>
+      <span class="badge badge-free">Free tier</span>
+    </div>
+    <div class="tool-tagline">Flow-state optimized IDE by Codeium</div>
+    <div class="tool-details">
+      Clean, beginner-friendly UI. "Cascade" agent understands full codebase context with memory that persists across sessions. Live UI previews. Pro $15/mo.
+    </div>
+    <a class="tool-link" href="https://windsurf.ai/">windsurf.ai &rarr;</a>
+  </div>
+
+  <div class="tool">
+    <div class="tool-header">
+      <h3>Cursor</h3>
+      <span class="badge badge-freemium">Free tier</span>
+    </div>
+    <div class="tool-tagline">The power user's choice</div>
+    <div class="tool-details">
+      Composer for multi-file editing, aggressive tab completions, autonomous Agent Mode. <code>@codebase</code> for repo-wide context. Custom instructions via <code>.cursor/rules</code>. Pro $20/mo.
+    </div>
+    <a class="tool-link" href="https://cursor.com/">cursor.com &rarr;</a>
+  </div>
+
+  <div class="tool">
+    <div class="tool-header">
+      <h3>Cline</h3>
+      <span class="badge badge-freemium">BYOK</span>
+    </div>
+    <div class="tool-tagline">Open-source, privacy-first agent (30k+ GitHub stars)</div>
+    <div class="tool-details">
+      Works with any model (Claude, GPT, Gemini, local via Ollama). Plan + Act mode with human-in-the-loop approval. MCP plugin support. Browser automation. Your code stays on your machine.
+    </div>
+    <a class="tool-link" href="https://cline.bot/">cline.bot</a> · <a class="tool-link" href="https://github.com/cline/cline">GitHub &rarr;</a>
+  </div>
+
+</div>
+
+<script>
+const header=document.getElementById('stickyHeader');
+const hero=document.querySelector('.hero');
+const observer=new IntersectionObserver(([e])=>{
+  header.classList.toggle('visible',!e.isIntersecting);
+},{threshold:0});
+observer.observe(hero);
+
+if(window.parent!==window){
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
+      e.preventDefault();
+      window.parent.postMessage({type:'slideKey',key:e.key},'*');
+    }
+    if((e.key==='f'||e.key==='F')&&!e.metaKey&&!e.ctrlKey){
+      window.parent.postMessage({type:'slideKey',key:e.key},'*');
+    }
+  });
+}
+</script>
+</body>
+</html>
