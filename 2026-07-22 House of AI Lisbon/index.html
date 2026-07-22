@@ -1236,49 +1236,90 @@ h3{font-size:22px;font-weight:500;letter-spacing:-0.3px}
 <!-- ============================================================ -->
 <div class="slide">
   <span class="tag">The Products &nbsp;·&nbsp; pc.0g.ai</span>
-  <h2><strong class="accent">0G Private Computer</strong> — the Gateway to 0G Compute</h2>
-  <p class="subtitle">Verifiable, private, low-cost access to open models — for users and developers. Drop-in: no endpoint or SDK changes.</p>
+  <h2><strong class="accent">0G Private Computer</strong> — One API, All of AI</h2>
+  <p class="subtitle">The gateway to 0G Compute: verified runs, privacy on demand, zero platform fees — for users and developers.</p>
 
-  <div class="two-col" style="margin-top:28px;max-width:1060px">
+  <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:32px;margin-top:24px;max-width:1100px;width:100%">
+
+    <!-- Left: OpenAI-compatible code window + live pricing -->
     <div>
-      <h3 style="font-size:14px;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;color:var(--text-3);font-weight:600">Choose Your Trust Mode</h3>
-      <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px">
-        <div class="card" style="padding:16px 20px;display:flex;align-items:center;gap:14px">
-          <div style="background:var(--purple-soft);border:1px solid var(--purple-border);border-radius:8px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;font-weight:700;color:var(--purple);flex-shrink:0">STD</div>
-          <div><div style="font-weight:600;font-size:15px">Standard Routing</div><div style="font-size:13px;color:var(--text-3)">Widest coverage across all providers</div></div>
+      <div class="browser" style="background:#141419;border-color:rgba(255,255,255,0.08)">
+        <div class="browser-bar" style="background:#1c1c24;border-color:rgba(255,255,255,0.06)">
+          <div class="browser-dot" style="background:rgba(255,255,255,0.15)"></div><div class="browser-dot" style="background:rgba(255,255,255,0.15)"></div><div class="browser-dot" style="background:rgba(255,255,255,0.15)"></div>
+          <div class="browser-url" style="background:#141419;border-color:rgba(255,255,255,0.08);color:rgba(255,255,255,0.35)">trust_mode.py — works with your OpenAI SDK</div>
         </div>
-        <div class="card" style="padding:16px 20px;display:flex;align-items:center;gap:14px">
-          <div style="background:var(--purple-soft);border:1px solid var(--purple-border);border-radius:8px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;font-weight:700;color:var(--purple);flex-shrink:0">TEE</div>
-          <div><div style="font-weight:600;font-size:15px">Verified Routing</div><div style="font-size:13px;color:var(--text-3)">Attested providers only — TeeML / TeeTLS channels</div></div>
-        </div>
-        <div class="card" style="padding:16px 20px;display:flex;align-items:center;gap:14px">
-          <div style="background:var(--purple-soft);border:1px solid var(--purple-border);border-radius:8px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;font-weight:700;color:var(--purple);flex-shrink:0">PRIV</div>
-          <div><div style="font-weight:600;font-size:15px">Private Inference</div><div style="font-size:13px;color:var(--text-3)">Hardware-isolated GPU enclaves — neither 0G nor providers see your data</div></div>
+        <div style="padding:16px 20px;font-family:var(--mono);font-size:13px;line-height:1.75;color:rgba(255,255,255,0.85)">
+          <div><span style="color:#B75FFF">from</span> openai <span style="color:#B75FFF">import</span> OpenAI</div>
+          <div>client = OpenAI(base_url=<span style="color:#4ade80">ZG_ENDPOINT</span>, api_key=<span style="color:#4ade80">ZG_KEY</span>)</div>
+          <div style="color:rgba(255,255,255,0.3)"># same SDK, same code — just point it at 0G</div>
+          <div>r = client.chat.completions.create(</div>
+          <div>&nbsp;&nbsp;model=<span style="color:#4ade80">"glm-5.1"</span>, messages=msgs,</div>
+          <div style="background:rgba(146,0,225,0.22);margin:0 -20px;padding:0 20px;border-left:3px solid var(--purple-light)">&nbsp;&nbsp;extra_headers={<span style="color:#4ade80">"X-0G-Provider-Trust-Mode"</span>: <span style="color:#4ade80">"private"</span>}</div>
+          <div>)</div>
         </div>
       </div>
-      <div class="pill mt-16" style="font-size:13px;padding:8px 18px">Every response carries a signed Proof ID — the model you call is the model you get</div>
+      <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+        <span class="pill" style="font-size:12px;padding:6px 16px">OpenAI-compatible</span>
+        <span class="pill" style="font-size:12px;padding:6px 16px">Switching costs one line</span>
+        <span class="pill" style="font-size:12px;padding:6px 16px">Per-request or per-key trust mode</span>
+      </div>
+
+      <h3 style="font-size:12px;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;color:var(--text-3);font-weight:600;margin-top:20px">Live Marketplace Pricing · per 1M input tokens</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px">
+        <div class="card" style="padding:12px 14px;text-align:center">
+          <div style="font-family:var(--mono);font-size:11px;font-weight:600;color:var(--text-2)">GLM-5.1</div>
+          <div style="font-family:var(--mono);font-size:20px;font-weight:700;color:var(--purple);margin-top:2px">$0.73</div>
+          <div style="font-family:var(--mono);font-size:9px;color:var(--text-4);margin-top:2px">207K CTX · 35% OFF</div>
+        </div>
+        <div class="card" style="padding:12px 14px;text-align:center">
+          <div style="font-family:var(--mono);font-size:11px;font-weight:600;color:var(--text-2)">MiniMax-M3</div>
+          <div style="font-family:var(--mono);font-size:20px;font-weight:700;color:var(--purple);margin-top:2px">$0.27</div>
+          <div style="font-family:var(--mono);font-size:9px;color:var(--text-4);margin-top:2px">1M CTX · 55% OFF</div>
+        </div>
+        <div class="card" style="padding:12px 14px;text-align:center">
+          <div style="font-family:var(--mono);font-size:11px;font-weight:600;color:var(--text-2)">0GM-1.0-35B</div>
+          <div style="font-family:var(--mono);font-size:20px;font-weight:700;color:var(--purple);margin-top:2px">$0.08</div>
+          <div style="font-family:var(--mono);font-size:9px;color:var(--text-4);margin-top:2px">262K CTX · 50% OFF</div>
+        </div>
+      </div>
     </div>
 
+    <!-- Right: trust mode selector + proof verifier -->
     <div>
-      <h3 style="font-size:14px;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;color:var(--text-3);font-weight:600">The Opening Problems — Solved</h3>
-      <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px">
-        <div class="card" style="padding:16px 20px;display:flex;align-items:flex-start;gap:14px">
-          <span style="color:var(--green);font-size:18px;font-weight:700">✓</span>
-          <div><div style="font-weight:600;font-size:15px">Access — permissionless</div><div style="font-size:13px;color:var(--text-3)">Open provider marketplace. No gatekeeper can revoke the models you depend on.</div></div>
+      <h3 style="font-size:12px;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;color:var(--text-3);font-weight:600">Trust Mode · widest coverage → strongest guarantee</h3>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+        <div class="card" style="padding:12px 18px;display:flex;align-items:center;gap:14px">
+          <div style="width:16px;height:16px;border:2px solid var(--border);border-radius:50%;flex-shrink:0"></div>
+          <div style="flex:1"><span style="font-weight:600;font-size:14px">Standard Routing</span><span style="font-size:12px;color:var(--text-3)"> — all providers, best price &amp; availability</span></div>
         </div>
-        <div class="card" style="padding:16px 20px;display:flex;align-items:flex-start;gap:14px">
-          <span style="color:var(--green);font-size:18px;font-weight:700">✓</span>
-          <div><div style="font-weight:600;font-size:15px">Price — pay per token, not per month</div><div style="font-size:13px;color:var(--text-3)">GLM-5.1 &amp; MiniMax-M3 from $0.08 / M input tokens. No markups, no subscriptions.</div></div>
+        <div class="card" style="padding:12px 18px;display:flex;align-items:center;gap:14px">
+          <div style="width:16px;height:16px;border:2px solid var(--border);border-radius:50%;flex-shrink:0"></div>
+          <div style="flex:1"><span style="font-weight:600;font-size:14px">Verified Routing</span><span style="font-size:12px;color:var(--text-3)"> — attested providers only, you know which model ran</span></div>
         </div>
-        <div class="card" style="padding:16px 20px;display:flex;align-items:flex-start;gap:14px">
-          <span style="color:var(--green);font-size:18px;font-weight:700">✓</span>
-          <div><div style="font-weight:600;font-size:15px">Censorship — your prompts are yours</div><div style="font-size:13px;color:var(--text-3)">Open models plus TEE privacy. No policy desk between you and the model.</div></div>
+        <div class="card" style="padding:12px 18px;display:flex;align-items:center;gap:14px;border-color:var(--purple-border);background:var(--purple-soft)">
+          <div style="width:16px;height:16px;border:2px solid var(--purple);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><div style="width:8px;height:8px;background:var(--purple);border-radius:50%"></div></div>
+          <div style="flex:1"><span style="font-weight:600;font-size:14px;color:var(--purple)">Private Inference</span><span style="font-size:12px;color:var(--text-2)"> — sealed TEE GPU enclaves; not even 0G sees your data</span></div>
         </div>
+      </div>
+
+      <h3 style="font-size:12px;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;color:var(--text-3);font-weight:600;margin-top:20px">Don't Trust. Verify.</h3>
+      <div class="card" style="padding:16px 20px;margin-top:10px">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <span style="font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-3);font-weight:600">Proof ID</span>
+          <span style="font-family:var(--mono);font-size:12px;color:var(--purple);font-weight:600">0x2h_shdk23332…a4f6</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-top:12px">
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-2)"><span style="color:var(--green);font-weight:700">✓</span> TEE attestation signature valid</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-2)"><span style="color:var(--green);font-weight:700">✓</span> Model hash matches glm-5.1</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-2)"><span style="color:var(--green);font-weight:700">✓</span> GPU enclave measurement verified</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-2)"><span style="color:var(--green);font-weight:700">✓</span> Routing path verified</div>
+        </div>
+        <div style="font-size:11px;color:var(--text-3);margin-top:10px;font-style:italic">The model you call is the model you get — a check you run yourself.</div>
       </div>
     </div>
   </div>
 
-  <div class="source">pc.0g.ai · Trust-mode routing per request or per API key · On-chain ledger, no platform markup</div>
+  <div class="source">pc.0g.ai · Verified runs · Privacy on demand · Zero platform fees · Pay per token in 0G — no subscriptions</div>
 </div>
 
 <!-- ============================================================ -->
