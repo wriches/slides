@@ -559,6 +559,261 @@ h3{font-size:22px;font-weight:500;letter-spacing:-0.3px}
 </div>
 
 <!-- ============================================================ -->
+<!-- SLIDE: 0G PRIVATE COMPUTER — THE PRODUCTS -->
+<!-- ============================================================ -->
+<div class="slide">
+  <span class="tag">The Products &nbsp;·&nbsp; pc.0g.ai</span>
+  <h2><strong class="accent">0G Private Computer</strong> — One API, All of AI</h2>
+  <p class="subtitle">The gateway to 0G Compute: verified runs, privacy on demand, zero platform fees — for users and developers.</p>
+
+  <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:32px;margin-top:24px;max-width:1100px;width:100%">
+
+    <!-- Left: OpenAI-compatible code window + live pricing -->
+    <div>
+      <div class="browser" style="background:#141419;border-color:rgba(255,255,255,0.08)">
+        <div class="browser-bar" style="background:#1c1c24;border-color:rgba(255,255,255,0.06)">
+          <div class="browser-dot" style="background:rgba(255,255,255,0.15)"></div><div class="browser-dot" style="background:rgba(255,255,255,0.15)"></div><div class="browser-dot" style="background:rgba(255,255,255,0.15)"></div>
+          <div class="browser-url" style="background:#141419;border-color:rgba(255,255,255,0.08);color:rgba(255,255,255,0.35)">trust_mode.py — works with your OpenAI SDK</div>
+        </div>
+        <div style="padding:16px 20px;font-family:var(--mono);font-size:13px;line-height:1.75;color:rgba(255,255,255,0.85)">
+          <div><span style="color:#B75FFF">from</span> openai <span style="color:#B75FFF">import</span> OpenAI</div>
+          <div>client = OpenAI(base_url=<span style="color:#4ade80">ZG_ENDPOINT</span>, api_key=<span style="color:#4ade80">ZG_KEY</span>)</div>
+          <div style="color:rgba(255,255,255,0.3)"># same SDK, same code — just point it at 0G</div>
+          <div>r = client.chat.completions.create(</div>
+          <div>&nbsp;&nbsp;model=<span style="color:#4ade80">"glm-5.1"</span>, messages=msgs,</div>
+          <div style="background:rgba(146,0,225,0.22);margin:0 -20px;padding:0 20px;border-left:3px solid var(--purple-light)">&nbsp;&nbsp;extra_headers={<span style="color:#4ade80">"X-0G-Provider-Trust-Mode"</span>: <span style="color:#4ade80">"private"</span>}</div>
+          <div>)</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+        <span class="pill" style="font-size:12px;padding:6px 16px">OpenAI-compatible</span>
+        <span class="pill" style="font-size:12px;padding:6px 16px">Switching costs one line</span>
+        <span class="pill" style="font-size:12px;padding:6px 16px">Per-request or per-key trust mode</span>
+      </div>
+
+      <h3 style="font-size:12px;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;color:var(--text-3);font-weight:600;margin-top:20px">Live Marketplace Pricing · per 1M input tokens</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px">
+        <div class="card" style="padding:12px 14px;text-align:center">
+          <div style="font-family:var(--mono);font-size:11px;font-weight:600;color:var(--text-2)">GLM-5.1</div>
+          <div style="font-family:var(--mono);font-size:20px;font-weight:700;color:var(--purple);margin-top:2px">$0.73</div>
+          <div style="font-family:var(--mono);font-size:9px;color:var(--text-4);margin-top:2px">207K CTX · 35% OFF</div>
+        </div>
+        <div class="card" style="padding:12px 14px;text-align:center">
+          <div style="font-family:var(--mono);font-size:11px;font-weight:600;color:var(--text-2)">MiniMax-M3</div>
+          <div style="font-family:var(--mono);font-size:20px;font-weight:700;color:var(--purple);margin-top:2px">$0.27</div>
+          <div style="font-family:var(--mono);font-size:9px;color:var(--text-4);margin-top:2px">1M CTX · 55% OFF</div>
+        </div>
+        <div class="card" style="padding:12px 14px;text-align:center">
+          <div style="font-family:var(--mono);font-size:11px;font-weight:600;color:var(--text-2)">0GM-1.0-35B</div>
+          <div style="font-family:var(--mono);font-size:20px;font-weight:700;color:var(--purple);margin-top:2px">$0.08</div>
+          <div style="font-family:var(--mono);font-size:9px;color:var(--text-4);margin-top:2px">262K CTX · 50% OFF</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: trust mode selector + proof verifier -->
+    <div>
+      <h3 style="font-size:12px;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;color:var(--text-3);font-weight:600">Trust Mode · widest coverage → strongest guarantee</h3>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+        <div class="card" style="padding:12px 18px;display:flex;align-items:center;gap:14px">
+          <div style="width:16px;height:16px;border:2px solid var(--border);border-radius:50%;flex-shrink:0"></div>
+          <div style="flex:1"><span style="font-weight:600;font-size:14px">Standard Routing</span><span style="font-size:12px;color:var(--text-3)"> — all providers, best price &amp; availability</span></div>
+        </div>
+        <div class="card" style="padding:12px 18px;display:flex;align-items:center;gap:14px">
+          <div style="width:16px;height:16px;border:2px solid var(--border);border-radius:50%;flex-shrink:0"></div>
+          <div style="flex:1"><span style="font-weight:600;font-size:14px">Verified Routing</span><span style="font-size:12px;color:var(--text-3)"> — attested providers only, you know which model ran</span></div>
+        </div>
+        <div class="card" style="padding:12px 18px;display:flex;align-items:center;gap:14px;border-color:var(--purple-border);background:var(--purple-soft)">
+          <div style="width:16px;height:16px;border:2px solid var(--purple);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><div style="width:8px;height:8px;background:var(--purple);border-radius:50%"></div></div>
+          <div style="flex:1"><span style="font-weight:600;font-size:14px;color:var(--purple)">Private Inference</span><span style="font-size:12px;color:var(--text-2)"> — sealed TEE GPU enclaves; not even 0G sees your data</span></div>
+        </div>
+      </div>
+
+      <h3 style="font-size:12px;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;color:var(--text-3);font-weight:600;margin-top:20px">Don't Trust. Verify.</h3>
+      <div class="card" style="padding:16px 20px;margin-top:10px">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <span style="font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-3);font-weight:600">Proof ID</span>
+          <span style="font-family:var(--mono);font-size:12px;color:var(--purple);font-weight:600">0x2h_shdk23332…a4f6</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-top:12px">
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-2)"><span style="color:var(--green);font-weight:700">✓</span> TEE attestation signature valid</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-2)"><span style="color:var(--green);font-weight:700">✓</span> Model hash matches glm-5.1</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-2)"><span style="color:var(--green);font-weight:700">✓</span> GPU enclave measurement verified</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-2)"><span style="color:var(--green);font-weight:700">✓</span> Routing path verified</div>
+        </div>
+        <div style="font-size:11px;color:var(--text-3);margin-top:10px;font-style:italic">The model you call is the model you get — a check you run yourself.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="source">pc.0g.ai · Verified runs · Privacy on demand · Zero platform fees · Pay per token in 0G — no subscriptions</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: 0G APP — STUDIO -->
+<!-- ============================================================ -->
+<div class="slide">
+  <span class="tag">The Products &nbsp;·&nbsp; app.0g.ai</span>
+  <h2><strong class="accent">0G App</strong> — Studio: Prompt. Deploy.</h2>
+  <p class="subtitle">Describe your app and watch it build itself — complete web apps from natural language, on decentralized infra.</p>
+
+  <div style="display:flex;align-items:center;gap:28px;margin-top:32px;max-width:1080px">
+    <!-- Prompt window -->
+    <div class="browser" style="flex:1">
+      <div class="browser-bar">
+        <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
+        <div class="browser-url">app.0g.ai/studio</div>
+      </div>
+      <div style="padding:18px 20px">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--purple);font-weight:700;margin-bottom:10px">Prompt</div>
+        <div style="border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-size:14px;color:var(--text-2);line-height:1.5;background:var(--bg)">A dashboard that tracks my wallet across chains, with charts and alerts<span style="color:var(--purple);font-weight:700">▌</span></div>
+        <div style="display:flex;gap:6px;margin-top:12px;flex-wrap:wrap">
+          <span class="use-case">Landing page</span>
+          <span class="use-case">Dashboard</span>
+          <span class="use-case">Web app</span>
+          <span class="use-case">Wallet tracker</span>
+        </div>
+        <div style="margin-top:14px;display:flex;align-items:center;gap:10px">
+          <span style="background:var(--purple);color:#fff;font-size:13px;font-weight:600;padding:8px 22px;border-radius:8px;display:inline-block">Generate →</span>
+          <span style="font-family:var(--mono);font-size:10px;color:var(--text-3);letter-spacing:1px;text-transform:uppercase">or upload a mockup</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0">
+      <div style="font-size:36px;color:var(--purple);font-weight:700">→</div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase">seconds</div>
+    </div>
+
+    <!-- Generated app window -->
+    <div class="browser" style="flex:1">
+      <div class="browser-bar">
+        <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
+        <div class="browser-url">your-app.vercel.app</div>
+      </div>
+      <div style="padding:16px 18px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <div style="width:90px;height:10px;background:var(--text-4);border-radius:5px;opacity:0.5"></div>
+          <div style="width:64px;height:22px;background:var(--purple);border-radius:6px"></div>
+        </div>
+        <div style="display:flex;gap:14px">
+          <div style="width:64px;display:flex;flex-direction:column;gap:8px;flex-shrink:0">
+            <div style="height:7px;background:var(--purple);border-radius:4px;opacity:0.8"></div>
+            <div style="height:7px;background:var(--text-4);border-radius:4px;opacity:0.4"></div>
+            <div style="height:7px;background:var(--text-4);border-radius:4px;opacity:0.4"></div>
+            <div style="height:7px;background:var(--text-4);border-radius:4px;opacity:0.4"></div>
+          </div>
+          <div style="flex:1">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+              <div style="border:1px solid var(--border);border-radius:8px;padding:8px"><div style="width:60%;height:5px;background:var(--text-4);opacity:0.4;border-radius:3px"></div><div style="width:80%;height:9px;background:var(--purple);border-radius:3px;margin-top:6px;opacity:0.85"></div></div>
+              <div style="border:1px solid var(--border);border-radius:8px;padding:8px"><div style="width:60%;height:5px;background:var(--text-4);opacity:0.4;border-radius:3px"></div><div style="width:70%;height:9px;background:var(--purple);border-radius:3px;margin-top:6px;opacity:0.85"></div></div>
+              <div style="border:1px solid var(--border);border-radius:8px;padding:8px"><div style="width:60%;height:5px;background:var(--text-4);opacity:0.4;border-radius:3px"></div><div style="width:85%;height:9px;background:var(--purple);border-radius:3px;margin-top:6px;opacity:0.85"></div></div>
+            </div>
+            <div style="display:flex;align-items:flex-end;gap:10px;height:64px;margin-top:12px;border:1px solid var(--border);border-radius:8px;padding:10px 14px 8px">
+              <div style="flex:1;height:40%;background:linear-gradient(var(--purple),var(--purple-light));border-radius:3px 3px 0 0"></div>
+              <div style="flex:1;height:70%;background:linear-gradient(var(--purple),var(--purple-light));border-radius:3px 3px 0 0"></div>
+              <div style="flex:1;height:55%;background:linear-gradient(var(--purple),var(--purple-light));border-radius:3px 3px 0 0"></div>
+              <div style="flex:1;height:90%;background:linear-gradient(var(--purple),var(--purple-light));border-radius:3px 3px 0 0"></div>
+              <div style="flex:1;height:75%;background:linear-gradient(var(--purple),var(--purple-light));border-radius:3px 3px 0 0"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:10px;margin-top:28px;flex-wrap:wrap">
+    <span class="pill" style="font-size:12px;padding:6px 16px">Live preview as it builds</span>
+    <span class="pill" style="font-size:12px;padding:6px 16px">Runs in your browser — WebContainers</span>
+    <span class="pill" style="font-size:12px;padding:6px 16px">One-click deploy</span>
+    <span class="pill" style="font-size:12px;padding:6px 16px">No code required</span>
+  </div>
+
+  <div class="source">app.0g.ai · Studio generates Vite + React projects · Sessions sync to 0G Storage with a cryptographic root hash</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: 0G APP — CHAT, GENOME, AGENT LAUNCHPAD -->
+<!-- ============================================================ -->
+<div class="slide">
+  <span class="tag">The Products &nbsp;·&nbsp; app.0g.ai</span>
+  <h2>Chat · Genome · <strong class="accent">Agent Launchpad</strong></h2>
+  <p class="subtitle">Private AI chat, original app concepts, and one-click agents — all running on 0G Compute.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:32px;max-width:1080px;width:100%">
+    <!-- Chat -->
+    <div>
+      <div class="app-gfx">
+        <div style="position:absolute;top:12px;right:12px;display:flex;align-items:center;gap:6px;background:var(--green-soft);border:1px solid rgba(22,163,74,0.25);border-radius:6px;padding:4px 10px;font-family:var(--mono);font-size:9px;font-weight:700;color:var(--green);letter-spacing:1px">
+          <span style="width:5px;height:5px;background:var(--green);border-radius:50%"></span>TEE ENCLAVE
+        </div>
+        <div style="position:absolute;inset:0;padding:24px 20px;display:flex;flex-direction:column;gap:10px;justify-content:center">
+          <div style="align-self:flex-start;background:var(--bg-card);border:1px solid var(--border);border-radius:12px 12px 12px 4px;padding:10px 14px;width:58%">
+            <div style="height:6px;background:var(--text-4);opacity:0.4;border-radius:3px;width:90%"></div>
+            <div style="height:6px;background:var(--text-4);opacity:0.4;border-radius:3px;width:60%;margin-top:5px"></div>
+          </div>
+          <div style="align-self:flex-end;background:var(--purple);border-radius:12px 12px 4px 12px;padding:10px 14px;width:64%;box-shadow:0 4px 16px rgba(146,0,225,0.25)">
+            <div style="height:6px;background:rgba(255,255,255,0.55);border-radius:3px;width:95%"></div>
+            <div style="height:6px;background:rgba(255,255,255,0.55);border-radius:3px;width:70%;margin-top:5px"></div>
+          </div>
+        </div>
+        <div class="gfx-label">No one can read your prompts</div>
+      </div>
+      <h3 style="margin-top:16px;font-size:18px;font-weight:700">Chat</h3>
+      <div style="font-size:14px;color:var(--text-2);line-height:1.55;margin-top:6px">Private AI chat powered by GLM-5 — every inference runs inside a hardware enclave. Pay per token; start with ~$2 of 0G.</div>
+    </div>
+
+    <!-- Genome -->
+    <div>
+      <div class="app-gfx">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="position:relative;width:78px;height:88px">
+            <div style="position:absolute;top:0;left:0;width:56px;height:56px;border:2px dashed var(--purple-border);border-radius:10px;background:var(--bg-card);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--text-3);font-weight:600">BRIEF</div>
+            <div style="position:absolute;bottom:0;right:0;width:56px;height:56px;border:2px dashed var(--purple-border);border-radius:10px;background:var(--bg-card);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--text-3);font-weight:600">REF</div>
+          </div>
+          <div style="font-size:24px;color:var(--purple);font-weight:700">→</div>
+          <div style="width:84px;height:100px;border-radius:12px;background:linear-gradient(135deg,var(--purple),var(--purple-light));box-shadow:0 6px 24px rgba(146,0,225,0.3);padding:12px 10px;display:flex;flex-direction:column;gap:6px">
+            <div style="height:7px;background:rgba(255,255,255,0.75);border-radius:3px;width:70%"></div>
+            <div style="height:5px;background:rgba(255,255,255,0.4);border-radius:3px"></div>
+            <div style="height:5px;background:rgba(255,255,255,0.4);border-radius:3px;width:80%"></div>
+            <div style="margin-top:auto;height:16px;background:rgba(255,255,255,0.25);border-radius:4px"></div>
+          </div>
+        </div>
+        <div class="gfx-label">Brief → Original App</div>
+      </div>
+      <h3 style="margin-top:16px;font-size:18px;font-weight:700">Genome</h3>
+      <div style="font-size:14px;color:var(--text-2);line-height:1.55;margin-top:6px">The inspiration studio. Brief the vision, add optional references — 0Genome turns it into an original, premium app direction.</div>
+    </div>
+
+    <!-- Agent Launchpad -->
+    <div>
+      <div class="app-gfx">
+        <div style="position:absolute;top:12px;right:12px;font-family:var(--mono);font-size:9px;font-weight:700;color:var(--purple);letter-spacing:1px;background:var(--purple-soft);border:1px solid var(--purple-border);border-radius:6px;padding:4px 10px">×12 AGENTS</div>
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div style="width:8px;height:8px;background:var(--purple);border-radius:50%"></div>
+          <div style="width:2px;height:10px;background:var(--purple)"></div>
+          <div style="width:66px;height:54px;background:var(--bg-card);border:2px solid var(--purple);border-radius:14px;display:flex;align-items:center;justify-content:center;gap:11px;box-shadow:0 4px 20px rgba(146,0,225,0.2)">
+            <div style="width:8px;height:13px;background:var(--purple);border-radius:4px"></div>
+            <div style="width:8px;height:13px;background:var(--purple);border-radius:4px"></div>
+          </div>
+          <div style="display:flex;gap:7px;margin-top:9px;align-items:flex-start">
+            <div style="width:4px;height:16px;background:linear-gradient(var(--purple),transparent);border-radius:2px"></div>
+            <div style="width:4px;height:26px;background:linear-gradient(var(--purple-light),transparent);border-radius:2px"></div>
+            <div style="width:4px;height:16px;background:linear-gradient(var(--purple),transparent);border-radius:2px"></div>
+          </div>
+        </div>
+        <div class="gfx-label">One-click deploy</div>
+      </div>
+      <h3 style="margin-top:16px;font-size:18px;font-weight:700">Agent Launchpad</h3>
+      <div style="font-size:14px;color:var(--text-2);line-height:1.55;margin-top:6px">Deploy purpose-built AI agents backed by OpenClaw + 0G Compute. Customize personality, memory and tools — chat in real time.</div>
+    </div>
+  </div>
+
+  <div class="source">app.0g.ai · Chat runs GLM-5-FP8 inside Intel TDX TEE enclaves · Launcher Hub: app.0g.ai/launchers</div>
+</div>
+
+<!-- ============================================================ -->
 <!-- SLIDE: WHAT IS 0G -->
 <!-- ============================================================ -->
 <div class="slide center">
@@ -631,200 +886,6 @@ h3{font-size:22px;font-weight:500;letter-spacing:-0.3px}
       </div>
     </div>
 
-  </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SLIDE: PROBLEM 1 — OPACITY -->
-<!-- ============================================================ -->
-<div class="slide" data-reveal>
-  <span class="tag">Problems with AI Today</span>
-  <h2>Opacity & Lack of <strong class="accent">Trust</strong></h2>
-
-  <div class="problem-layout">
-    <div style="display:flex;flex-direction:column;gap:20px">
-      <div class="problem-graphic gfx-opacity">
-        <div class="ring"></div>
-        <div class="box">?</div>
-      </div>
-      <div class="problem-content">
-        <div class="problem-label">Where the issue lies today</div>
-        <div class="problem-text">AI decisions are black boxes — data and models are unverifiable. Users have no way to audit what happened or why.</div>
-      </div>
-    </div>
-    <div class="problem-fix-wrap">
-      <div class="problem-fix">
-        <div class="problem-label">How 0G fixes this</div>
-        <div class="problem-text">0G enables verifiable references to data, models, and agent actions — every inference is provable, every dataset is tamper-proof.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SLIDE: PROBLEM 2 — VENDOR LOCK-IN -->
-<!-- ============================================================ -->
-<div class="slide" data-reveal>
-  <span class="tag">Problems with AI Today</span>
-  <h2>Vendor <strong class="accent">Lock-In</strong></h2>
-
-  <div class="problem-layout">
-    <div style="display:flex;flex-direction:column;gap:20px">
-      <div class="problem-graphic gfx-lockin">
-        <div style="position:relative;display:flex;flex-direction:column;align-items:center">
-          <div class="lock-shackle"></div>
-          <div class="lock-body"><div class="lock-hole"></div></div>
-        </div>
-        <div class="chain" style="top:20px;left:16px;transform:rotate(-8deg)">///</div>
-        <div class="chain" style="bottom:24px;right:16px;transform:rotate(5deg)">///</div>
-      </div>
-      <div class="problem-content">
-        <div class="problem-label">Where the issue lies today</div>
-        <div class="problem-text">Apps depend on closed APIs, opaque pricing, and shifting policies. Switching providers means rebuilding from scratch.</div>
-      </div>
-    </div>
-    <div class="problem-fix-wrap">
-      <div class="problem-fix">
-        <div class="problem-label">How 0G fixes this</div>
-        <div class="problem-text">0G provides open, decentralized storage & compute markets — no single vendor controls your infrastructure.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SLIDE: PROBLEM 3 — NO OWNERSHIP -->
-<!-- ============================================================ -->
-<div class="slide" data-reveal>
-  <span class="tag">Problems with AI Today</span>
-  <h2>No Ownership or <strong class="accent">Accountability</strong></h2>
-
-  <div class="problem-layout">
-    <div style="display:flex;flex-direction:column;gap:20px">
-      <div class="problem-graphic gfx-ownership">
-        <div class="node orphan" style="width:52px;height:52px;top:20%;left:18%">?</div>
-        <div class="node orphan" style="width:40px;height:40px;top:55%;left:30%">?</div>
-        <div class="node" style="width:48px;height:48px;top:25%;right:22%">AI</div>
-        <div class="node" style="width:36px;height:36px;bottom:22%;right:30%">AI</div>
-        <div class="node orphan" style="width:44px;height:44px;bottom:18%;left:15%">?</div>
-      </div>
-      <div class="problem-content">
-        <div class="problem-label">Where the issue lies today</div>
-        <div class="problem-text">Users don't own their agents or outputs. Responsibility is unclear — when something goes wrong, there's no accountability.</div>
-      </div>
-    </div>
-    <div class="problem-fix-wrap">
-      <div class="problem-fix">
-        <div class="problem-label">How 0G fixes this</div>
-        <div class="problem-text">0G supports on-chain agents (iNFTs) with true ownership, granular permissions, and full auditability.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SLIDE: PROBLEM 4 — CENTRALIZED CONTROL -->
-<!-- ============================================================ -->
-<div class="slide" data-reveal>
-  <span class="tag">Problems with AI Today</span>
-  <h2>Centralized Control & <strong class="accent">Censorship</strong></h2>
-
-  <div class="problem-layout">
-    <div style="display:flex;flex-direction:column;gap:20px">
-      <div class="problem-graphic gfx-central">
-        <div class="spoke" style="top:18%;left:50%;transform:translateX(-50%)"></div>
-        <div class="spoke" style="top:38%;left:18%"></div>
-        <div class="spoke" style="top:38%;right:18%"></div>
-        <div class="spoke" style="bottom:22%;left:26%"></div>
-        <div class="spoke" style="bottom:22%;right:26%"></div>
-        <div class="hub">CTRL</div>
-      </div>
-      <div class="problem-content">
-        <div class="problem-label">Where the issue lies today</div>
-        <div class="problem-text">A few companies decide who can build, deploy, or access AI. One policy change can kill an entire product overnight.</div>
-      </div>
-    </div>
-    <div class="problem-fix-wrap">
-      <div class="problem-fix">
-        <div class="problem-label">How 0G fixes this</div>
-        <div class="problem-text">0G is permissionless infrastructure with no single gatekeeper — anyone can build, deploy, and serve AI.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SLIDE: PROBLEM 5 — FRAGILE APPS -->
-<!-- ============================================================ -->
-<div class="slide" data-reveal>
-  <span class="tag">Problems with AI Today</span>
-  <h2>Fragile AI <strong class="accent">Applications</strong></h2>
-
-  <div class="problem-layout">
-    <div style="display:flex;flex-direction:column;gap:20px">
-      <div class="problem-graphic gfx-fragile">
-        <div class="block">
-          APP
-          <div class="crack"></div>
-          <div class="crack2"></div>
-        </div>
-        <div class="spark" style="top:32%;left:48%"></div>
-        <div class="spark" style="top:44%;left:52%"></div>
-        <div class="spark" style="top:38%;left:44%"></div>
-      </div>
-      <div class="problem-content">
-        <div class="problem-label">Where the issue lies today</div>
-        <div class="problem-text">Apps break when providers change terms, raise prices, or go offline. A single dependency failure cascades through everything.</div>
-      </div>
-    </div>
-    <div class="problem-fix-wrap">
-      <div class="problem-fix">
-        <div class="problem-label">How 0G fixes this</div>
-        <div class="problem-text">0G's modular stack enables resilience and provider diversity — swap any layer without rebuilding your app.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SLIDE: PROBLEM 6 — MISALIGNED INCENTIVES -->
-<!-- ============================================================ -->
-<div class="slide" data-reveal>
-  <span class="tag">Problems with AI Today</span>
-  <h2>Misaligned <strong class="accent">Incentives</strong></h2>
-
-  <div class="problem-layout">
-    <div style="display:flex;flex-direction:column;gap:20px">
-      <div class="problem-graphic gfx-incentives">
-        <div class="scale-wrap">
-          <div class="scale-base"></div>
-          <div class="scale-pillar"></div>
-          <div class="scale-fulcrum"></div>
-          <div class="scale-beam"></div>
-          <!-- Left pan (heavy / platform side, lower) -->
-          <div class="scale-pan left-pan"></div>
-          <!-- Weight block on left pan -->
-          <div class="scale-weight" style="width:44px;height:16px;background:var(--red);color:#fff;bottom:30px;left:11px">$$$</div>
-          <!-- Right pan (light / builders side, higher) -->
-          <div class="scale-pan right-pan"></div>
-          <!-- Small weight on right pan -->
-          <div class="scale-weight" style="width:28px;height:10px;background:var(--purple);color:#fff;bottom:88px;right:19px;font-size:8px">$</div>
-          <!-- Labels -->
-          <div class="scale-label" style="bottom:0;left:1px;color:var(--red)">Platform</div>
-          <div class="scale-label" style="bottom:58px;right:1px;color:var(--purple)">Builders</div>
-        </div>
-      </div>
-      <div class="problem-content">
-        <div class="problem-label">Where the issue lies today</div>
-        <div class="problem-text">AI platforms extract most of the value. Builders, data providers, and users see little return for their contributions.</div>
-      </div>
-    </div>
-    <div class="problem-fix-wrap">
-      <div class="problem-fix">
-        <div class="problem-label">How 0G fixes this</div>
-        <div class="problem-text">0G enables native payments & incentives for data, compute, and agents — value flows to those who create it.</div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -1068,261 +1129,6 @@ h3{font-size:22px;font-weight:500;letter-spacing:-0.3px}
 </div>
 
 <!-- ============================================================ -->
-<!-- SLIDE: 0G APP — STUDIO -->
-<!-- ============================================================ -->
-<div class="slide">
-  <span class="tag">The Products &nbsp;·&nbsp; app.0g.ai</span>
-  <h2><strong class="accent">0G App</strong> — Studio: Prompt. Deploy.</h2>
-  <p class="subtitle">Describe your app and watch it build itself — complete web apps from natural language, on decentralized infra.</p>
-
-  <div style="display:flex;align-items:center;gap:28px;margin-top:32px;max-width:1080px">
-    <!-- Prompt window -->
-    <div class="browser" style="flex:1">
-      <div class="browser-bar">
-        <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
-        <div class="browser-url">app.0g.ai/studio</div>
-      </div>
-      <div style="padding:18px 20px">
-        <div style="font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--purple);font-weight:700;margin-bottom:10px">Prompt</div>
-        <div style="border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-size:14px;color:var(--text-2);line-height:1.5;background:var(--bg)">A dashboard that tracks my wallet across chains, with charts and alerts<span style="color:var(--purple);font-weight:700">▌</span></div>
-        <div style="display:flex;gap:6px;margin-top:12px;flex-wrap:wrap">
-          <span class="use-case">Landing page</span>
-          <span class="use-case">Dashboard</span>
-          <span class="use-case">Web app</span>
-          <span class="use-case">Wallet tracker</span>
-        </div>
-        <div style="margin-top:14px;display:flex;align-items:center;gap:10px">
-          <span style="background:var(--purple);color:#fff;font-size:13px;font-weight:600;padding:8px 22px;border-radius:8px;display:inline-block">Generate →</span>
-          <span style="font-family:var(--mono);font-size:10px;color:var(--text-3);letter-spacing:1px;text-transform:uppercase">or upload a mockup</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Arrow -->
-    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0">
-      <div style="font-size:36px;color:var(--purple);font-weight:700">→</div>
-      <div style="font-family:var(--mono);font-size:10px;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase">seconds</div>
-    </div>
-
-    <!-- Generated app window -->
-    <div class="browser" style="flex:1">
-      <div class="browser-bar">
-        <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
-        <div class="browser-url">your-app.vercel.app</div>
-      </div>
-      <div style="padding:16px 18px">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-          <div style="width:90px;height:10px;background:var(--text-4);border-radius:5px;opacity:0.5"></div>
-          <div style="width:64px;height:22px;background:var(--purple);border-radius:6px"></div>
-        </div>
-        <div style="display:flex;gap:14px">
-          <div style="width:64px;display:flex;flex-direction:column;gap:8px;flex-shrink:0">
-            <div style="height:7px;background:var(--purple);border-radius:4px;opacity:0.8"></div>
-            <div style="height:7px;background:var(--text-4);border-radius:4px;opacity:0.4"></div>
-            <div style="height:7px;background:var(--text-4);border-radius:4px;opacity:0.4"></div>
-            <div style="height:7px;background:var(--text-4);border-radius:4px;opacity:0.4"></div>
-          </div>
-          <div style="flex:1">
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
-              <div style="border:1px solid var(--border);border-radius:8px;padding:8px"><div style="width:60%;height:5px;background:var(--text-4);opacity:0.4;border-radius:3px"></div><div style="width:80%;height:9px;background:var(--purple);border-radius:3px;margin-top:6px;opacity:0.85"></div></div>
-              <div style="border:1px solid var(--border);border-radius:8px;padding:8px"><div style="width:60%;height:5px;background:var(--text-4);opacity:0.4;border-radius:3px"></div><div style="width:70%;height:9px;background:var(--purple);border-radius:3px;margin-top:6px;opacity:0.85"></div></div>
-              <div style="border:1px solid var(--border);border-radius:8px;padding:8px"><div style="width:60%;height:5px;background:var(--text-4);opacity:0.4;border-radius:3px"></div><div style="width:85%;height:9px;background:var(--purple);border-radius:3px;margin-top:6px;opacity:0.85"></div></div>
-            </div>
-            <div style="display:flex;align-items:flex-end;gap:10px;height:64px;margin-top:12px;border:1px solid var(--border);border-radius:8px;padding:10px 14px 8px">
-              <div style="flex:1;height:40%;background:linear-gradient(var(--purple),var(--purple-light));border-radius:3px 3px 0 0"></div>
-              <div style="flex:1;height:70%;background:linear-gradient(var(--purple),var(--purple-light));border-radius:3px 3px 0 0"></div>
-              <div style="flex:1;height:55%;background:linear-gradient(var(--purple),var(--purple-light));border-radius:3px 3px 0 0"></div>
-              <div style="flex:1;height:90%;background:linear-gradient(var(--purple),var(--purple-light));border-radius:3px 3px 0 0"></div>
-              <div style="flex:1;height:75%;background:linear-gradient(var(--purple),var(--purple-light));border-radius:3px 3px 0 0"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div style="display:flex;gap:10px;margin-top:28px;flex-wrap:wrap">
-    <span class="pill" style="font-size:12px;padding:6px 16px">Live preview as it builds</span>
-    <span class="pill" style="font-size:12px;padding:6px 16px">Runs in your browser — WebContainers</span>
-    <span class="pill" style="font-size:12px;padding:6px 16px">One-click deploy</span>
-    <span class="pill" style="font-size:12px;padding:6px 16px">No code required</span>
-  </div>
-
-  <div class="source">app.0g.ai · Studio generates Vite + React projects · Sessions sync to 0G Storage with a cryptographic root hash</div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SLIDE: 0G APP — CHAT, GENOME, AGENT LAUNCHPAD -->
-<!-- ============================================================ -->
-<div class="slide">
-  <span class="tag">The Products &nbsp;·&nbsp; app.0g.ai</span>
-  <h2>Chat · Genome · <strong class="accent">Agent Launchpad</strong></h2>
-  <p class="subtitle">Private AI chat, original app concepts, and one-click agents — all running on 0G Compute.</p>
-
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:32px;max-width:1080px;width:100%">
-    <!-- Chat -->
-    <div>
-      <div class="app-gfx">
-        <div style="position:absolute;top:12px;right:12px;display:flex;align-items:center;gap:6px;background:var(--green-soft);border:1px solid rgba(22,163,74,0.25);border-radius:6px;padding:4px 10px;font-family:var(--mono);font-size:9px;font-weight:700;color:var(--green);letter-spacing:1px">
-          <span style="width:5px;height:5px;background:var(--green);border-radius:50%"></span>TEE ENCLAVE
-        </div>
-        <div style="position:absolute;inset:0;padding:24px 20px;display:flex;flex-direction:column;gap:10px;justify-content:center">
-          <div style="align-self:flex-start;background:var(--bg-card);border:1px solid var(--border);border-radius:12px 12px 12px 4px;padding:10px 14px;width:58%">
-            <div style="height:6px;background:var(--text-4);opacity:0.4;border-radius:3px;width:90%"></div>
-            <div style="height:6px;background:var(--text-4);opacity:0.4;border-radius:3px;width:60%;margin-top:5px"></div>
-          </div>
-          <div style="align-self:flex-end;background:var(--purple);border-radius:12px 12px 4px 12px;padding:10px 14px;width:64%;box-shadow:0 4px 16px rgba(146,0,225,0.25)">
-            <div style="height:6px;background:rgba(255,255,255,0.55);border-radius:3px;width:95%"></div>
-            <div style="height:6px;background:rgba(255,255,255,0.55);border-radius:3px;width:70%;margin-top:5px"></div>
-          </div>
-        </div>
-        <div class="gfx-label">No one can read your prompts</div>
-      </div>
-      <h3 style="margin-top:16px;font-size:18px;font-weight:700">Chat</h3>
-      <div style="font-size:14px;color:var(--text-2);line-height:1.55;margin-top:6px">Private AI chat powered by GLM-5 — every inference runs inside a hardware enclave. Pay per token; start with ~$2 of 0G.</div>
-    </div>
-
-    <!-- Genome -->
-    <div>
-      <div class="app-gfx">
-        <div style="display:flex;align-items:center;gap:14px">
-          <div style="position:relative;width:78px;height:88px">
-            <div style="position:absolute;top:0;left:0;width:56px;height:56px;border:2px dashed var(--purple-border);border-radius:10px;background:var(--bg-card);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--text-3);font-weight:600">BRIEF</div>
-            <div style="position:absolute;bottom:0;right:0;width:56px;height:56px;border:2px dashed var(--purple-border);border-radius:10px;background:var(--bg-card);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--text-3);font-weight:600">REF</div>
-          </div>
-          <div style="font-size:24px;color:var(--purple);font-weight:700">→</div>
-          <div style="width:84px;height:100px;border-radius:12px;background:linear-gradient(135deg,var(--purple),var(--purple-light));box-shadow:0 6px 24px rgba(146,0,225,0.3);padding:12px 10px;display:flex;flex-direction:column;gap:6px">
-            <div style="height:7px;background:rgba(255,255,255,0.75);border-radius:3px;width:70%"></div>
-            <div style="height:5px;background:rgba(255,255,255,0.4);border-radius:3px"></div>
-            <div style="height:5px;background:rgba(255,255,255,0.4);border-radius:3px;width:80%"></div>
-            <div style="margin-top:auto;height:16px;background:rgba(255,255,255,0.25);border-radius:4px"></div>
-          </div>
-        </div>
-        <div class="gfx-label">Brief → Original App</div>
-      </div>
-      <h3 style="margin-top:16px;font-size:18px;font-weight:700">Genome</h3>
-      <div style="font-size:14px;color:var(--text-2);line-height:1.55;margin-top:6px">The inspiration studio. Brief the vision, add optional references — 0Genome turns it into an original, premium app direction.</div>
-    </div>
-
-    <!-- Agent Launchpad -->
-    <div>
-      <div class="app-gfx">
-        <div style="position:absolute;top:12px;right:12px;font-family:var(--mono);font-size:9px;font-weight:700;color:var(--purple);letter-spacing:1px;background:var(--purple-soft);border:1px solid var(--purple-border);border-radius:6px;padding:4px 10px">×12 AGENTS</div>
-        <div style="display:flex;flex-direction:column;align-items:center">
-          <div style="width:8px;height:8px;background:var(--purple);border-radius:50%"></div>
-          <div style="width:2px;height:10px;background:var(--purple)"></div>
-          <div style="width:66px;height:54px;background:var(--bg-card);border:2px solid var(--purple);border-radius:14px;display:flex;align-items:center;justify-content:center;gap:11px;box-shadow:0 4px 20px rgba(146,0,225,0.2)">
-            <div style="width:8px;height:13px;background:var(--purple);border-radius:4px"></div>
-            <div style="width:8px;height:13px;background:var(--purple);border-radius:4px"></div>
-          </div>
-          <div style="display:flex;gap:7px;margin-top:9px;align-items:flex-start">
-            <div style="width:4px;height:16px;background:linear-gradient(var(--purple),transparent);border-radius:2px"></div>
-            <div style="width:4px;height:26px;background:linear-gradient(var(--purple-light),transparent);border-radius:2px"></div>
-            <div style="width:4px;height:16px;background:linear-gradient(var(--purple),transparent);border-radius:2px"></div>
-          </div>
-        </div>
-        <div class="gfx-label">One-click deploy</div>
-      </div>
-      <h3 style="margin-top:16px;font-size:18px;font-weight:700">Agent Launchpad</h3>
-      <div style="font-size:14px;color:var(--text-2);line-height:1.55;margin-top:6px">Deploy purpose-built AI agents backed by OpenClaw + 0G Compute. Customize personality, memory and tools — chat in real time.</div>
-    </div>
-  </div>
-
-  <div class="source">app.0g.ai · Chat runs GLM-5-FP8 inside Intel TDX TEE enclaves · Launcher Hub: app.0g.ai/launchers</div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SLIDE: 0G PRIVATE COMPUTER — THE PRODUCTS -->
-<!-- ============================================================ -->
-<div class="slide">
-  <span class="tag">The Products &nbsp;·&nbsp; pc.0g.ai</span>
-  <h2><strong class="accent">0G Private Computer</strong> — One API, All of AI</h2>
-  <p class="subtitle">The gateway to 0G Compute: verified runs, privacy on demand, zero platform fees — for users and developers.</p>
-
-  <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:32px;margin-top:24px;max-width:1100px;width:100%">
-
-    <!-- Left: OpenAI-compatible code window + live pricing -->
-    <div>
-      <div class="browser" style="background:#141419;border-color:rgba(255,255,255,0.08)">
-        <div class="browser-bar" style="background:#1c1c24;border-color:rgba(255,255,255,0.06)">
-          <div class="browser-dot" style="background:rgba(255,255,255,0.15)"></div><div class="browser-dot" style="background:rgba(255,255,255,0.15)"></div><div class="browser-dot" style="background:rgba(255,255,255,0.15)"></div>
-          <div class="browser-url" style="background:#141419;border-color:rgba(255,255,255,0.08);color:rgba(255,255,255,0.35)">trust_mode.py — works with your OpenAI SDK</div>
-        </div>
-        <div style="padding:16px 20px;font-family:var(--mono);font-size:13px;line-height:1.75;color:rgba(255,255,255,0.85)">
-          <div><span style="color:#B75FFF">from</span> openai <span style="color:#B75FFF">import</span> OpenAI</div>
-          <div>client = OpenAI(base_url=<span style="color:#4ade80">ZG_ENDPOINT</span>, api_key=<span style="color:#4ade80">ZG_KEY</span>)</div>
-          <div style="color:rgba(255,255,255,0.3)"># same SDK, same code — just point it at 0G</div>
-          <div>r = client.chat.completions.create(</div>
-          <div>&nbsp;&nbsp;model=<span style="color:#4ade80">"glm-5.1"</span>, messages=msgs,</div>
-          <div style="background:rgba(146,0,225,0.22);margin:0 -20px;padding:0 20px;border-left:3px solid var(--purple-light)">&nbsp;&nbsp;extra_headers={<span style="color:#4ade80">"X-0G-Provider-Trust-Mode"</span>: <span style="color:#4ade80">"private"</span>}</div>
-          <div>)</div>
-        </div>
-      </div>
-      <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
-        <span class="pill" style="font-size:12px;padding:6px 16px">OpenAI-compatible</span>
-        <span class="pill" style="font-size:12px;padding:6px 16px">Switching costs one line</span>
-        <span class="pill" style="font-size:12px;padding:6px 16px">Per-request or per-key trust mode</span>
-      </div>
-
-      <h3 style="font-size:12px;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;color:var(--text-3);font-weight:600;margin-top:20px">Live Marketplace Pricing · per 1M input tokens</h3>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px">
-        <div class="card" style="padding:12px 14px;text-align:center">
-          <div style="font-family:var(--mono);font-size:11px;font-weight:600;color:var(--text-2)">GLM-5.1</div>
-          <div style="font-family:var(--mono);font-size:20px;font-weight:700;color:var(--purple);margin-top:2px">$0.73</div>
-          <div style="font-family:var(--mono);font-size:9px;color:var(--text-4);margin-top:2px">207K CTX · 35% OFF</div>
-        </div>
-        <div class="card" style="padding:12px 14px;text-align:center">
-          <div style="font-family:var(--mono);font-size:11px;font-weight:600;color:var(--text-2)">MiniMax-M3</div>
-          <div style="font-family:var(--mono);font-size:20px;font-weight:700;color:var(--purple);margin-top:2px">$0.27</div>
-          <div style="font-family:var(--mono);font-size:9px;color:var(--text-4);margin-top:2px">1M CTX · 55% OFF</div>
-        </div>
-        <div class="card" style="padding:12px 14px;text-align:center">
-          <div style="font-family:var(--mono);font-size:11px;font-weight:600;color:var(--text-2)">0GM-1.0-35B</div>
-          <div style="font-family:var(--mono);font-size:20px;font-weight:700;color:var(--purple);margin-top:2px">$0.08</div>
-          <div style="font-family:var(--mono);font-size:9px;color:var(--text-4);margin-top:2px">262K CTX · 50% OFF</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Right: trust mode selector + proof verifier -->
-    <div>
-      <h3 style="font-size:12px;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;color:var(--text-3);font-weight:600">Trust Mode · widest coverage → strongest guarantee</h3>
-      <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
-        <div class="card" style="padding:12px 18px;display:flex;align-items:center;gap:14px">
-          <div style="width:16px;height:16px;border:2px solid var(--border);border-radius:50%;flex-shrink:0"></div>
-          <div style="flex:1"><span style="font-weight:600;font-size:14px">Standard Routing</span><span style="font-size:12px;color:var(--text-3)"> — all providers, best price &amp; availability</span></div>
-        </div>
-        <div class="card" style="padding:12px 18px;display:flex;align-items:center;gap:14px">
-          <div style="width:16px;height:16px;border:2px solid var(--border);border-radius:50%;flex-shrink:0"></div>
-          <div style="flex:1"><span style="font-weight:600;font-size:14px">Verified Routing</span><span style="font-size:12px;color:var(--text-3)"> — attested providers only, you know which model ran</span></div>
-        </div>
-        <div class="card" style="padding:12px 18px;display:flex;align-items:center;gap:14px;border-color:var(--purple-border);background:var(--purple-soft)">
-          <div style="width:16px;height:16px;border:2px solid var(--purple);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><div style="width:8px;height:8px;background:var(--purple);border-radius:50%"></div></div>
-          <div style="flex:1"><span style="font-weight:600;font-size:14px;color:var(--purple)">Private Inference</span><span style="font-size:12px;color:var(--text-2)"> — sealed TEE GPU enclaves; not even 0G sees your data</span></div>
-        </div>
-      </div>
-
-      <h3 style="font-size:12px;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;color:var(--text-3);font-weight:600;margin-top:20px">Don't Trust. Verify.</h3>
-      <div class="card" style="padding:16px 20px;margin-top:10px">
-        <div style="display:flex;align-items:center;justify-content:space-between">
-          <span style="font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-3);font-weight:600">Proof ID</span>
-          <span style="font-family:var(--mono);font-size:12px;color:var(--purple);font-weight:600">0x2h_shdk23332…a4f6</span>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:6px;margin-top:12px">
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-2)"><span style="color:var(--green);font-weight:700">✓</span> TEE attestation signature valid</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-2)"><span style="color:var(--green);font-weight:700">✓</span> Model hash matches glm-5.1</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-2)"><span style="color:var(--green);font-weight:700">✓</span> GPU enclave measurement verified</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-2)"><span style="color:var(--green);font-weight:700">✓</span> Routing path verified</div>
-        </div>
-        <div style="font-size:11px;color:var(--text-3);margin-top:10px;font-style:italic">The model you call is the model you get — a check you run yourself.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="source">pc.0g.ai · Verified runs · Privacy on demand · Zero platform fees · Pay per token in 0G — no subscriptions</div>
-</div>
-
-<!-- ============================================================ -->
 <!-- SLIDE: THE CONFLICT -->
 <!-- ============================================================ -->
 <div class="slide">
@@ -1540,6 +1346,200 @@ h3{font-size:22px;font-weight:500;letter-spacing:-0.3px}
   </div>
 
   <div class="source">Source: Deloitte "State of AI in the Enterprise" 2025 · 0G Labs node sale data · Validator announcements</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: PROBLEM 1 — OPACITY -->
+<!-- ============================================================ -->
+<div class="slide" data-reveal>
+  <span class="tag">Problems with AI Today</span>
+  <h2>Opacity & Lack of <strong class="accent">Trust</strong></h2>
+
+  <div class="problem-layout">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="problem-graphic gfx-opacity">
+        <div class="ring"></div>
+        <div class="box">?</div>
+      </div>
+      <div class="problem-content">
+        <div class="problem-label">Where the issue lies today</div>
+        <div class="problem-text">AI decisions are black boxes — data and models are unverifiable. Users have no way to audit what happened or why.</div>
+      </div>
+    </div>
+    <div class="problem-fix-wrap">
+      <div class="problem-fix">
+        <div class="problem-label">How 0G fixes this</div>
+        <div class="problem-text">0G enables verifiable references to data, models, and agent actions — every inference is provable, every dataset is tamper-proof.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: PROBLEM 2 — VENDOR LOCK-IN -->
+<!-- ============================================================ -->
+<div class="slide" data-reveal>
+  <span class="tag">Problems with AI Today</span>
+  <h2>Vendor <strong class="accent">Lock-In</strong></h2>
+
+  <div class="problem-layout">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="problem-graphic gfx-lockin">
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center">
+          <div class="lock-shackle"></div>
+          <div class="lock-body"><div class="lock-hole"></div></div>
+        </div>
+        <div class="chain" style="top:20px;left:16px;transform:rotate(-8deg)">///</div>
+        <div class="chain" style="bottom:24px;right:16px;transform:rotate(5deg)">///</div>
+      </div>
+      <div class="problem-content">
+        <div class="problem-label">Where the issue lies today</div>
+        <div class="problem-text">Apps depend on closed APIs, opaque pricing, and shifting policies. Switching providers means rebuilding from scratch.</div>
+      </div>
+    </div>
+    <div class="problem-fix-wrap">
+      <div class="problem-fix">
+        <div class="problem-label">How 0G fixes this</div>
+        <div class="problem-text">0G provides open, decentralized storage & compute markets — no single vendor controls your infrastructure.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: PROBLEM 3 — NO OWNERSHIP -->
+<!-- ============================================================ -->
+<div class="slide" data-reveal>
+  <span class="tag">Problems with AI Today</span>
+  <h2>No Ownership or <strong class="accent">Accountability</strong></h2>
+
+  <div class="problem-layout">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="problem-graphic gfx-ownership">
+        <div class="node orphan" style="width:52px;height:52px;top:20%;left:18%">?</div>
+        <div class="node orphan" style="width:40px;height:40px;top:55%;left:30%">?</div>
+        <div class="node" style="width:48px;height:48px;top:25%;right:22%">AI</div>
+        <div class="node" style="width:36px;height:36px;bottom:22%;right:30%">AI</div>
+        <div class="node orphan" style="width:44px;height:44px;bottom:18%;left:15%">?</div>
+      </div>
+      <div class="problem-content">
+        <div class="problem-label">Where the issue lies today</div>
+        <div class="problem-text">Users don't own their agents or outputs. Responsibility is unclear — when something goes wrong, there's no accountability.</div>
+      </div>
+    </div>
+    <div class="problem-fix-wrap">
+      <div class="problem-fix">
+        <div class="problem-label">How 0G fixes this</div>
+        <div class="problem-text">0G supports on-chain agents (iNFTs) with true ownership, granular permissions, and full auditability.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: PROBLEM 4 — CENTRALIZED CONTROL -->
+<!-- ============================================================ -->
+<div class="slide" data-reveal>
+  <span class="tag">Problems with AI Today</span>
+  <h2>Centralized Control & <strong class="accent">Censorship</strong></h2>
+
+  <div class="problem-layout">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="problem-graphic gfx-central">
+        <div class="spoke" style="top:18%;left:50%;transform:translateX(-50%)"></div>
+        <div class="spoke" style="top:38%;left:18%"></div>
+        <div class="spoke" style="top:38%;right:18%"></div>
+        <div class="spoke" style="bottom:22%;left:26%"></div>
+        <div class="spoke" style="bottom:22%;right:26%"></div>
+        <div class="hub">CTRL</div>
+      </div>
+      <div class="problem-content">
+        <div class="problem-label">Where the issue lies today</div>
+        <div class="problem-text">A few companies decide who can build, deploy, or access AI. One policy change can kill an entire product overnight.</div>
+      </div>
+    </div>
+    <div class="problem-fix-wrap">
+      <div class="problem-fix">
+        <div class="problem-label">How 0G fixes this</div>
+        <div class="problem-text">0G is permissionless infrastructure with no single gatekeeper — anyone can build, deploy, and serve AI.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: PROBLEM 5 — FRAGILE APPS -->
+<!-- ============================================================ -->
+<div class="slide" data-reveal>
+  <span class="tag">Problems with AI Today</span>
+  <h2>Fragile AI <strong class="accent">Applications</strong></h2>
+
+  <div class="problem-layout">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="problem-graphic gfx-fragile">
+        <div class="block">
+          APP
+          <div class="crack"></div>
+          <div class="crack2"></div>
+        </div>
+        <div class="spark" style="top:32%;left:48%"></div>
+        <div class="spark" style="top:44%;left:52%"></div>
+        <div class="spark" style="top:38%;left:44%"></div>
+      </div>
+      <div class="problem-content">
+        <div class="problem-label">Where the issue lies today</div>
+        <div class="problem-text">Apps break when providers change terms, raise prices, or go offline. A single dependency failure cascades through everything.</div>
+      </div>
+    </div>
+    <div class="problem-fix-wrap">
+      <div class="problem-fix">
+        <div class="problem-label">How 0G fixes this</div>
+        <div class="problem-text">0G's modular stack enables resilience and provider diversity — swap any layer without rebuilding your app.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: PROBLEM 6 — MISALIGNED INCENTIVES -->
+<!-- ============================================================ -->
+<div class="slide" data-reveal>
+  <span class="tag">Problems with AI Today</span>
+  <h2>Misaligned <strong class="accent">Incentives</strong></h2>
+
+  <div class="problem-layout">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="problem-graphic gfx-incentives">
+        <div class="scale-wrap">
+          <div class="scale-base"></div>
+          <div class="scale-pillar"></div>
+          <div class="scale-fulcrum"></div>
+          <div class="scale-beam"></div>
+          <!-- Left pan (heavy / platform side, lower) -->
+          <div class="scale-pan left-pan"></div>
+          <!-- Weight block on left pan -->
+          <div class="scale-weight" style="width:44px;height:16px;background:var(--red);color:#fff;bottom:30px;left:11px">$$$</div>
+          <!-- Right pan (light / builders side, higher) -->
+          <div class="scale-pan right-pan"></div>
+          <!-- Small weight on right pan -->
+          <div class="scale-weight" style="width:28px;height:10px;background:var(--purple);color:#fff;bottom:88px;right:19px;font-size:8px">$</div>
+          <!-- Labels -->
+          <div class="scale-label" style="bottom:0;left:1px;color:var(--red)">Platform</div>
+          <div class="scale-label" style="bottom:58px;right:1px;color:var(--purple)">Builders</div>
+        </div>
+      </div>
+      <div class="problem-content">
+        <div class="problem-label">Where the issue lies today</div>
+        <div class="problem-text">AI platforms extract most of the value. Builders, data providers, and users see little return for their contributions.</div>
+      </div>
+    </div>
+    <div class="problem-fix-wrap">
+      <div class="problem-fix">
+        <div class="problem-label">How 0G fixes this</div>
+        <div class="problem-text">0G enables native payments & incentives for data, compute, and agents — value flows to those who create it.</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ============================================================ -->
