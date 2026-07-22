@@ -1,4 +1,5 @@
 const PRESENTATIONS = [
+  "2026-07-22 House of AI Lisbon",
   "2026-05-27 Onsite Lagos Robotics",
   "2026-05-21 Apollo Accelerator",
   "2026-04-03 ETHGlobal Cannes",
