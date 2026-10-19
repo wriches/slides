@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>0G PC for Beginners #1: Getting Started</title>
+<link rel="stylesheet" href="css/shared.css">
+<style>
+html,body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--font);overflow:hidden;height:100%;width:100%;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ===== SLIDE SYSTEM ===== */
+.slide{
+  display:none;position:absolute;inset:0;
+  flex-direction:column;justify-content:center;padding:64px 120px 80px;overflow:hidden;
+}
+.slide.active{display:flex}
+.slide.center{align-items:center;text-align:center}
+
+.slide::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(146,0,225,0.04) 1px,transparent 1px);
+  background-size:40px 40px;pointer-events:none;z-index:0;
+}
+.slide::after{
+  content:'';position:absolute;top:-400px;left:50%;transform:translateX(-50%);
+  width:1200px;height:700px;
+  background:radial-gradient(ellipse,rgba(146,0,225,0.05) 0%,transparent 70%);
+  pointer-events:none;z-index:0;
+}
+.slide.dark{background:#050505;color:#FEFEFE}
+.slide.dark::before{background-image:radial-gradient(circle,rgba(146,0,225,0.08) 1px,transparent 1px)}
+.slide.dark::after{background:radial-gradient(ellipse at 50% 30%,rgba(146,0,225,0.2) 0%,transparent 60%);top:-200px}
+.slide>*{position:relative;z-index:1}
+
+/* ===== TYPOGRAPHY ===== */
+h1{font-size:62px;font-weight:300;line-height:1.1;letter-spacing:-2px}
+h1 strong{font-weight:700}
+h2{font-size:44px;font-weight:300;line-height:1.15;letter-spacing:-1.5px;max-width:1000px}
+h2 strong{font-weight:700}
+.subtitle{font-size:20px;color:var(--text-2);line-height:1.6;margin-top:16px;font-weight:300;max-width:860px}
+.slide.dark .subtitle{color:rgba(254,254,254,0.5)}
+.kicker{font-family:var(--mono);font-size:13px;color:var(--text-3);letter-spacing:1px;margin-bottom:20px}
+.slide.dark .kicker{color:rgba(254,254,254,0.4)}
+.center .divider{margin:28px auto}
+.takeaway{font-size:20px;color:var(--text-2);margin-top:40px;max-width:900px;line-height:1.5}
+.takeaway strong{color:var(--purple);font-weight:600}
+
+/* ===== COLUMNS ===== */
+.cols{display:grid;gap:20px;margin-top:44px;max-width:1080px;width:100%}
+.cols.c2{grid-template-columns:1fr 1fr}
+.cols.c3{grid-template-columns:1fr 1fr 1fr}
+.col{border:1px solid var(--border);border-radius:12px;padding:28px 30px;background:var(--bg-card)}
+.col.hl{border-color:var(--purple-border);background:var(--purple-soft)}
+.col.bad{border-color:var(--red-border)}
+.col h3{font-size:22px;font-weight:600;letter-spacing:-0.3px}
+.col.hl h3{color:var(--purple)}
+.col p{font-size:17px;color:var(--text-2);line-height:1.55;margin-top:10px}
+.col ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:12px}
+.col li{font-size:17px;color:var(--text-2);line-height:1.5}
+.col li strong{color:var(--text);font-weight:600}
+.label{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-3);font-weight:600}
+.col.hl .label{color:var(--purple)}
+.col.bad .label{color:var(--red)}
+
+/* ===== PROMPT BOX ===== */
+.prompt{
+  font-family:var(--mono);font-size:15px;line-height:1.7;color:var(--text);
+  background:var(--bg-alt);border:1px solid var(--border-light);border-radius:8px;
+  padding:14px 18px;margin-top:14px;
+}
+.prompt .dim{color:var(--text-3)}
+.result{font-size:16px;color:var(--text-2);margin-top:16px}
+
+/* ===== MODELS TABLE ===== */
+.models{border-collapse:collapse;margin-top:40px;width:100%;max-width:1080px;font-size:18px}
+.models th{
+  font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:1.5px;
+  color:var(--text-3);font-weight:600;text-align:left;padding:0 20px 12px;border-bottom:2px solid var(--border);
+}
+.models td{padding:15px 20px;border-bottom:1px solid var(--border-light);color:var(--text-2)}
+.models td:first-child{font-weight:600;color:var(--text)}
+.models .num{font-family:var(--mono);font-size:16px}
+.models tr.hl td{background:var(--purple-soft)}
+.models tr.hl td:first-child{color:var(--purple)}
+
+/* ===== FLOW ===== */
+.flow{display:flex;align-items:stretch;gap:14px;margin-top:44px;max-width:1080px}
+.flow .step{flex:1;border:1px solid var(--border);border-radius:12px;padding:22px 24px;background:var(--bg-card);font-size:18px;line-height:1.45}
+.flow .step .label{display:block;margin-bottom:8px}
+.flow .arrow{align-self:center;color:var(--text-4);font-size:22px}
+
+/* ===== TREE ===== */
+.tree{font-family:var(--mono);font-size:17px;line-height:2.1;white-space:pre;color:var(--text)}
+.tree .note{color:var(--text-3)}
+.tree .hl{color:var(--purple);font-weight:600}
+
+/* ===== SETUP STEPS ===== */
+.steps{display:flex;flex-direction:column;gap:18px;margin-top:40px;max-width:1000px}
+.steps .row{display:grid;grid-template-columns:40px 300px 1fr;align-items:baseline;gap:12px;font-size:19px}
+.steps .n{font-family:var(--mono);color:var(--purple);font-weight:600}
+.steps code{font-family:var(--mono);font-size:16px;color:var(--text-2)}
+
+/* ===== CLOSE ===== */
+.homework{display:flex;flex-direction:column;gap:16px;margin-top:8px;text-align:left}
+.homework div{font-size:22px;color:rgba(254,254,254,0.85);font-weight:300}
+.homework span{font-family:var(--mono);color:var(--purple-light);margin-right:16px}
+.qr{display:flex;flex-direction:column;align-items:center;gap:12px}
+.qr img{width:180px;height:180px;border-radius:14px;border:2px solid rgba(146,0,225,0.3)}
+.qr div{font-size:17px;color:rgba(254,254,254,0.6)}
+
+/* ===== CONTROLS ===== */
+.nav{position:fixed;bottom:24px;right:32px;z-index:100;display:flex;gap:6px}
+.nav button{
+  background:var(--bg-card);border:1px solid var(--border);
+  color:var(--text-3);padding:8px 18px;border-radius:8px;cursor:pointer;
+  font-family:var(--mono);font-size:12px;font-weight:500;transition:all 0.2s;
+}
+.nav button:hover{background:var(--purple);color:#fff;border-color:var(--purple)}
+.slide-counter{position:fixed;bottom:28px;left:32px;z-index:100;font-family:var(--mono);font-size:12px;color:var(--text-4)}
+.og-logo{position:fixed;top:24px;left:32px;z-index:100;width:50px;height:24px;color:rgba(10,10,10,0.65);transition:color 0.3s}
+.og-logo svg{width:100%;height:100%}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--purple);z-index:300;transition:width 0.4s ease}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.slide.active>*{animation:fadeUp 0.5s ease both}
+.slide.active>*:nth-child(2){animation-delay:0.05s}
+.slide.active>*:nth-child(3){animation-delay:0.1s}
+.slide.active>*:nth-child(4){animation-delay:0.15s}
+.slide.active>*:nth-child(5){animation-delay:0.2s}
+.slide.active>*:nth-child(6){animation-delay:0.25s}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+<div class="og-logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 50 24" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true" role="img"><path d="M50.0009 12.6136C49.6855 18.9497 44.3897 23.9913 37.9033 23.9913C31.214 23.9913 25.791 18.6291 25.791 12.0146C25.791 5.40009 31.214 0.0380859 37.9033 0.0380859C44.1841 0.0380859 49.3483 4.76491 49.956 10.8171H44.4555C43.8858 7.75086 41.169 5.42761 37.9035 5.42761C34.2241 5.42761 31.2416 8.37672 31.2416 12.0146C31.2416 15.6527 34.2241 18.6018 37.9035 18.6018C40.7281 18.6018 43.1418 16.8636 44.111 14.4101H34.8753V12.6136H50.0009Z" fill="currentColor"/><path d="M3.98642 20.8584C8.74078 25.1181 16.0905 24.9803 20.6772 20.4453C25.4072 15.7681 25.4072 8.18505 20.6772 3.50781C15.9469 -1.16927 8.27782 -1.16927 3.54764 3.50781C-0.893505 7.8992 -1.16488 14.8521 2.73348 19.5567L6.62297 15.7108C4.83311 13.1445 5.09269 9.60205 7.40183 7.31886C10.0034 4.7464 14.2215 4.7464 16.8231 7.31886C19.4245 9.89129 19.4245 14.062 16.8231 16.6345C14.8257 18.6094 11.8757 19.0682 9.43583 18.0106L15.9665 11.5531L14.6819 10.2829L3.98642 20.8584Z" fill="currentColor"/></svg></div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: TITLE (DARK) -->
+<!-- ============================================================ -->
+<div class="slide dark center active">
+  <div class="kicker">SESSION 1 &nbsp;·&nbsp; GETTING STARTED &nbsp;·&nbsp; OCT 20</div>
+  <h1><strong class="accent">0G PC</strong> for Beginners</h1>
+  <p class="subtitle">AI basics, then Claude Code on PC from scratch</p>
+  <div class="divider"></div>
+  <p style="font-size:18px;color:rgba(254,254,254,0.5);font-weight:300"><strong style="color:#fff;font-weight:600">Will Riches</strong> &nbsp;|&nbsp; Head of Developer Relations, 0G Labs</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: PRIVATE COMPUTER TRADE-OFFS -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="kicker">PRIVATE COMPUTER</div>
+  <h2>Working with <strong class="accent">Private Computer</strong></h2>
+  <div class="cols c2">
+    <div class="col hl">
+      <div class="label">What you get</div>
+      <ul>
+        <li><strong>Open models</strong> like GLM, DeepSeek and MiMo, through one key</li>
+        <li><strong>Privacy</strong>, with TEE-attested providers</li>
+        <li><strong>Low cost</strong>, paid per token with no subscription</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="label">What to expect</div>
+      <ul>
+        <li><strong>Slower replies.</strong> Give it fewer, clearer asks</li>
+        <li><strong>No web search.</strong> Give it the page, or a URL to fetch</li>
+        <li><strong>More slips.</strong> Most AI tools are tuned for Claude, so check the work</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: MODELS ON PC -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="kicker">PRIVATE COMPUTER</div>
+  <h2>Which model to <strong class="accent">pick</strong></h2>
+  <table class="models">
+    <thead><tr><th>Model</th><th>Use it for</th><th>Context</th><th>Images in</th><th>$ per M, in / out</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td>GLM 5.3</td><td>Default for most work</td><td class="num">1.2M</td><td>No</td><td class="num">1.40 / 4.40</td></tr>
+      <tr><td>GLM 5.3 Flash</td><td>Quick, simple jobs</td><td class="num">1.2M</td><td>No</td><td class="num">0.14 / 0.50</td></tr>
+      <tr><td>DeepSeek V4 Pro</td><td>A second opinion on hard problems</td><td class="num">1.4M</td><td>No</td><td class="num">0.79 / 2.38</td></tr>
+      <tr><td>MiMo V2.6 Pro</td><td>Screenshots and images</td><td class="num">1M</td><td>Yes</td><td class="num">0.63 / 1.25</td></tr>
+    </tbody>
+  </table>
+  <p class="takeaway">One key covers them all, so pick per task. <strong>Image and video models can't run Claude Code, but it can call them for you.</strong></p>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: PICK THE RIGHT TOOL -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="kicker">AI BASICS &nbsp;·&nbsp; PICK THE RIGHT TOOL</div>
+  <h2>The terminal is where AI has <strong class="accent">the most power</strong></h2>
+  <div class="cols c3">
+    <div class="col">
+      <h3>Chat</h3>
+      <p>Quick questions and drafts. It only knows what you paste in.</p>
+    </div>
+    <div class="col hl">
+      <h3>CLI agent</h3>
+      <p>Works on your machine. Reads files, runs commands, edits docs and code. Anything you can do in a terminal.</p>
+    </div>
+    <div class="col">
+      <h3>Specialised tools</h3>
+      <p>Design, slides, images and video. A tool built for one job still beats a general agent there.</p>
+    </div>
+  </div>
+  <p class="takeaway">Default to the CLI for real work. <strong>Switch when the output is visual.</strong></p>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: CONTEXT IS EVERYTHING -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="kicker">AI BASICS &nbsp;·&nbsp; GIVE IT EVERYTHING</div>
+  <h2>Low entropy in, <strong class="accent">low quality out</strong></h2>
+  <div class="cols c2">
+    <div class="col bad">
+      <div class="label">Thin</div>
+      <div class="prompt">write a tweet announcing GLM 5.3 on PC</div>
+      <p class="result">Generic. Could be any company, any model.</p>
+    </div>
+    <div class="col hl">
+      <div class="label">Rich</div>
+      <div class="prompt">write a tweet announcing GLM 5.3 on PC<br><span class="dim">+ release notes PDF<br>+ the pricing page<br>+ the Slack thread on our angle<br>+ three past tweets we liked</span></div>
+      <p class="result">Specific, on-brand, with the right numbers.</p>
+    </div>
+  </div>
+  <p class="takeaway">Don't tidy it, dump it. <strong>The model is great at sorting a mess. It can't invent what you didn't give it.</strong></p>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: ONE CHUNK AT A TIME -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="kicker">AI BASICS &nbsp;·&nbsp; ONE CHUNK AT A TIME</div>
+  <h2>Ask for one piece, <strong class="accent">review it</strong>, then move on</h2>
+  <div class="flow">
+    <div class="step"><span class="label">Ask</span>The landing page</div>
+    <div class="arrow">→</div>
+    <div class="step"><span class="label">Review</span>Read it, try it, fix it</div>
+    <div class="arrow">→</div>
+    <div class="step"><span class="label">Next</span>The sign-up form</div>
+  </div>
+  <p class="takeaway">"Build the whole event site" gives you more than you can check, so you end up accepting it unread. <strong>Small pieces are easy to review and easy to undo.</strong></p>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: NEVER ACCEPT A MISS -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="kicker">AI BASICS &nbsp;·&nbsp; NEVER ACCEPT A MISS</div>
+  <h2>Every hand edit is <strong class="accent">a rule you haven't written</strong></h2>
+  <div class="flow">
+    <div class="step">It gets something wrong</div>
+    <div class="arrow">→</div>
+    <div class="step">Say what you wanted, and why</div>
+    <div class="arrow">→</div>
+    <div class="step">Ask it to save that as a rule</div>
+    <div class="arrow">→</div>
+    <div class="step">Next time it's right</div>
+  </div>
+  <div class="prompt" style="margin-top:36px;max-width:1080px">You keep opening emails with pleasantries. I want the ask in the first line. Add that to my CLAUDE.md with an example.</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: WRITING GOOD RULES -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="kicker">AI BASICS &nbsp;·&nbsp; WRITE RULES THAT WORK</div>
+  <h2>Show it the target, <strong class="accent">and say why</strong></h2>
+  <div class="cols c2">
+    <div class="col bad">
+      <div class="label">Restrictions</div>
+      <div class="prompt">Don't be verbose.<br>Don't use jargon.<br>Don't use so many bullet points.</div>
+      <p class="result">Says what's wrong, not what good looks like.</p>
+    </div>
+    <div class="col hl">
+      <div class="label">An example, with the reason</div>
+      <div class="prompt">Write like a message to a busy colleague: the ask first, then two plain sentences. They read it on their phone.<br><span class="dim">e.g. "Can you check the GLM row on the pricing page today? Both prices changed on Friday."</span></div>
+      <p class="result">The reason covers the cases you didn't list.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: WORKSPACE AND CLAUDE.MD -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="kicker">CLAUDE CODE ON PC &nbsp;·&nbsp; YOUR WORKSPACE</div>
+  <h2>One folder for everything, <strong class="accent">one folder per project</strong></h2>
+  <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:56px;margin-top:44px;max-width:1080px;align-items:center">
+<div class="tree">~/.claude/CLAUDE.md      <span class="note">your rules, every session</span>
+~/AI/                    <span class="note">start Claude here</span>
+├─ <span class="hl">CLAUDE.md</span>             <span class="note">map of your projects</span>
+├─ team-intro/
+│  └─ <span class="hl">CLAUDE.md</span>          <span class="note">this project's rules</span>
+└─ launch-post/</div>
+    <div class="col" style="border:none;background:none;padding:0">
+      <ul style="margin-top:0;gap:18px">
+        <li><strong>CLAUDE.md</strong> is a plain text file of rules. Claude Code reads it every session.</li>
+        <li><strong>New idea?</strong> Ask for a new folder. Everything starts on your laptop.</li>
+        <li><strong>Worth keeping?</strong> Ask it to push the folder to GitHub.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: LIVE DEMO STEPS -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="kicker">CLAUDE CODE ON PC &nbsp;·&nbsp; LIVE</div>
+  <h2>Setting up <strong class="accent">from scratch</strong></h2>
+  <div class="steps">
+    <div class="row"><span class="n">1</span><span>Install Claude Code</span><code>curl -fsSL https://claude.ai/install.sh | bash</code></div>
+    <div class="row"><span class="n">2</span><span>Create an API key</span><code>pc.0g.ai → Dashboard → API Keys</code></div>
+    <div class="row"><span class="n">3</span><span>Point it at PC</span><code>~/.claude/settings.json</code></div>
+    <div class="row"><span class="n">4</span><span>Make your workspace</span><code>mkdir ~/AI &amp;&amp; cd ~/AI</code></div>
+    <div class="row"><span class="n">5</span><span>Start</span><code>claude</code></div>
+  </div>
+  <p class="takeaway">Every command is in the guide, <strong class="mono" style="font-size:18px">github.com/wriches/sessions</strong></p>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE: HOMEWORK (DARK) -->
+<!-- ============================================================ -->
+<div class="slide dark center">
+  <div class="kicker">THIS WEEK</div>
+  <div style="display:flex;gap:96px;align-items:center;margin-top:12px">
+    <div class="homework">
+      <div><span>1</span>Set up Claude Code on PC</div>
+      <div><span>2</span>Use it for one real task from your job</div>
+      <div><span>3</span>Write one rule when it gets something wrong</div>
+    </div>
+    <div class="qr">
+      <img src="img/qr-guide.png" alt="PC for Beginners guide">
+      <div>The guide</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CONTROLS                                                     -->
+<!-- ============================================================ -->
+<div class="slide-counter" id="counter"></div>
+<div class="nav"><button onclick="prev()">← Prev</button><button onclick="next()">Next →</button></div>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+const total=slides.length;
+const progress=document.getElementById('progress');
+const counter=document.getElementById('counter');
+const hashMatch=location.hash.match(/^#slide(\d+)$/);
+const hashSlide=hashMatch?parseInt(hashMatch[1],10):0;
+let current=(hashSlide>=1&&hashSlide<=total)?hashSlide-1:0;
+
+function show(n){
+  slides.forEach(s=>{s.classList.remove('active');s.classList.remove('revealed')});
+  slides[n].classList.add('active');
+  history.replaceState(null,null,'#slide'+(n+1));
+  progress.style.width=((n+1)/total*100)+'%';
+  counter.textContent=String(n+1).padStart(2,'0')+' / '+String(total).padStart(2,'0');
+  const isDark=slides[n].classList.contains('dark');
+  const hasIframe=slides[n].querySelector('iframe');
+  const logo=document.querySelector('.og-logo');
+  logo.style.color=isDark?'rgba(254,254,254,0.7)':'rgba(10,10,10,0.65)';
+  logo.style.display=hasIframe?'none':'';
+  counter.style.color=isDark?'rgba(254,254,254,0.2)':'var(--text-4)';
+  document.querySelectorAll('.nav button').forEach(b=>{
+    b.style.background=isDark?'rgba(255,255,255,0.06)':'';
+    b.style.borderColor=isDark?'rgba(255,255,255,0.1)':'';
+    b.style.color=isDark?'rgba(255,255,255,0.5)':'';
+  });
+  progress.style.background=isDark?'var(--purple-light)':'var(--purple)';
+}
+
+function next(){
+  const s=slides[current];
+  if(s.hasAttribute('data-reveal')&&!s.classList.contains('revealed')){
+    s.classList.add('revealed');
+    return;
+  }
+  if(current<total-1){current++;show(current)}
+}
+function prev(){
+  const s=slides[current];
+  if(s.hasAttribute('data-reveal')&&s.classList.contains('revealed')){
+    s.classList.remove('revealed');
+    return;
+  }
+  if(current>0){current--;show(current)}
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' ')next();
+  if(e.key==='ArrowLeft')prev();
+  if((e.key==='f'||e.key==='F')&&!e.metaKey&&!e.ctrlKey){
+    if(!document.fullscreenElement)document.documentElement.requestFullscreen();
+    else document.exitFullscreen();
+  }
+});
+
+show(current);
+
+// Listen for keyboard events forwarded from iframe companion pages
+window.addEventListener('message',e=>{
+  if(e.data&&e.data.type==='slideKey'){
+    if(e.data.key==='ArrowRight')next();
+    else if(e.data.key==='ArrowLeft')prev();
+    else if(e.data.key==='f'||e.data.key==='F'){
+      if(!document.fullscreenElement)document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  }
+});
+</script>
+</body>
+</html>
